@@ -1,0 +1,20 @@
+# Typing fallback table for bioagent_kg Phase 1
+# Copy to bioagent_kg repo as config/typing_fallback.yaml (or bioagent_kg/config/typing_fallback.yaml)
+# Maps phrase (normalized: lowercase, strip) to Biolink category when subject_category or object_category is missing.
+
+mappings:
+  - phrase: "adhd stimulants"
+    category: "biolink:ChemicalEntity"
+  - phrase: "psychostimulants"
+    category: "biolink:ChemicalEntity"
+  - phrase: "cns stimulants"
+    category: "biolink:ChemicalEntity"
+  - phrase: "stimulant drugs"
+    category: "biolink:ChemicalEntity"
+  - phrase: "nootropic compounds"
+    category: "biolink:ChemicalEntity"
+  - phrase: "cognitive enhancers"
+    category: "biolink:ChemicalEntity"
+
+# Safe default when no mapping matches (do not drop for missing category)
+default_category: "biolink:NamedThing"

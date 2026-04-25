@@ -1,0 +1,12 @@
+# Retention policy for review-flagged facts (Phase 1)
+# Copy to bioagent_kg repo as config/retention.yaml (or section in main pipeline config)
+# Keeps facts that are review-flagged (e.g. needs_specifics) but have valid categories and evidence.
+
+review_summary:
+  enabled: true
+  min_confidence: 0.3
+  require_subject_category: true
+  require_object_category: true
+  require_evidence: true
+  set_review_summary_flag: true
+  set_review_confidence: true

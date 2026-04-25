@@ -1,0 +1,2008 @@
+{
+  "_source": "neurolab/docs/implementation/receptor_gene_list_v2.csv",
+  "_description": "Curated receptor/transporter/channel gene list from CSV",
+  "genes": [
+    "HTR1A",
+    "HTR1B",
+    "HTR1D",
+    "HTR1E",
+    "HTR1F",
+    "HTR2A",
+    "HTR2B",
+    "HTR2C",
+    "HTR3A",
+    "HTR3B",
+    "HTR3C",
+    "HTR3D",
+    "HTR3E",
+    "HTR4",
+    "HTR5A",
+    "HTR6",
+    "HTR7",
+    "SLC6A4",
+    "TPH1",
+    "TPH2",
+    "DDC",
+    "MAOA",
+    "MAOB",
+    "DRD1",
+    "DRD2",
+    "DRD3",
+    "DRD4",
+    "DRD5",
+    "SLC6A3",
+    "TH",
+    "COMT",
+    "ADRA1A",
+    "ADRA1B",
+    "ADRA1D",
+    "ADRA2A",
+    "ADRA2B",
+    "ADRA2C",
+    "ADRB1",
+    "ADRB2",
+    "ADRB3",
+    "SLC6A2",
+    "DBH",
+    "PNMT",
+    "GABRA1",
+    "GABRA2",
+    "GABRA3",
+    "GABRA4",
+    "GABRA5",
+    "GABRA6",
+    "GABRB1",
+    "GABRB2",
+    "GABRB3",
+    "GABRG1",
+    "GABRG2",
+    "GABRG3",
+    "GABRD",
+    "GABRE",
+    "GABRP",
+    "GABRQ",
+    "GABRR1",
+    "GABRR2",
+    "GABRR3",
+    "GABBR1",
+    "GABBR2",
+    "SLC6A1",
+    "SLC6A11",
+    "SLC6A13",
+    "SLC32A1",
+    "GAD1",
+    "GAD2",
+    "ABAT",
+    "GRIA1",
+    "GRIA2",
+    "GRIA3",
+    "GRIA4",
+    "GRIK1",
+    "GRIK2",
+    "GRIK3",
+    "GRIK4",
+    "GRIK5",
+    "GRIN1",
+    "GRIN2A",
+    "GRIN2B",
+    "GRIN2C",
+    "GRIN2D",
+    "GRIN3A",
+    "GRIN3B",
+    "GRM1",
+    "GRM2",
+    "GRM3",
+    "GRM4",
+    "GRM5",
+    "GRM6",
+    "GRM7",
+    "GRM8",
+    "GRID1",
+    "GRID2",
+    "SLC17A7",
+    "SLC17A6",
+    "SLC17A8",
+    "SLC1A1",
+    "SLC1A2",
+    "SLC1A3",
+    "SLC1A6",
+    "SLC1A7",
+    "GLS",
+    "GLS2",
+    "GLUL",
+    "CHRNA1",
+    "CHRNA2",
+    "CHRNA3",
+    "CHRNA4",
+    "CHRNA5",
+    "CHRNA6",
+    "CHRNA7",
+    "CHRNA9",
+    "CHRNA10",
+    "CHRNB1",
+    "CHRNB2",
+    "CHRNB3",
+    "CHRNB4",
+    "CHRND",
+    "CHRNE",
+    "CHRNG",
+    "CHRM1",
+    "CHRM2",
+    "CHRM3",
+    "CHRM4",
+    "CHRM5",
+    "CHAT",
+    "ACHE",
+    "BCHE",
+    "SLC5A7",
+    "SLC18A3",
+    "OPRM1",
+    "OPRD1",
+    "OPRK1",
+    "OPRL1",
+    "PENK",
+    "PDYN",
+    "POMC",
+    "PNOC",
+    "HRH1",
+    "HRH2",
+    "HRH3",
+    "HRH4",
+    "HDC",
+    "HNMT",
+    "GLRA1",
+    "GLRA2",
+    "GLRA3",
+    "GLRB",
+    "SLC6A5",
+    "SLC6A9",
+    "CNR1",
+    "CNR2",
+    "DAGLA",
+    "DAGLB",
+    "NAPEPLD",
+    "FAAH",
+    "MGLL",
+    "ADORA1",
+    "ADORA2A",
+    "ADORA2B",
+    "ADORA3",
+    "P2RX1",
+    "P2RX2",
+    "P2RX3",
+    "P2RX4",
+    "P2RX5",
+    "P2RX6",
+    "P2RX7",
+    "P2RY1",
+    "P2RY2",
+    "P2RY4",
+    "P2RY6",
+    "P2RY11",
+    "P2RY12",
+    "P2RY13",
+    "P2RY14",
+    "TACR1",
+    "TACR2",
+    "TACR3",
+    "HCRTR1",
+    "HCRTR2",
+    "OXTR",
+    "AVPR1A",
+    "AVPR1B",
+    "AVPR2",
+    "CRHR1",
+    "CRHR2",
+    "NPY1R",
+    "NPY2R",
+    "NPY4R",
+    "NPY5R",
+    "CCKAR",
+    "CCKBR",
+    "NTSR1",
+    "NTSR2",
+    "SSTR1",
+    "SSTR2",
+    "SSTR3",
+    "SSTR4",
+    "SSTR5",
+    "GALR1",
+    "GALR2",
+    "GALR3",
+    "MC3R",
+    "MC4R",
+    "NTRK1",
+    "NTRK2",
+    "NTRK3",
+    "NGFR",
+    "BDNF",
+    "NGF",
+    "SLC18A1",
+    "SLC18A2",
+    "TAAR1",
+    "TAAR2",
+    "TAAR5",
+    "SIGMAR1",
+    "TMEM97",
+    "MTNR1A",
+    "MTNR1B",
+    "AANAT",
+    "ASMT",
+    "CACNA1A",
+    "CACNA1B",
+    "CACNA1C",
+    "CACNA1D",
+    "CACNA1E",
+    "CACNA2D1",
+    "CACNA2D2",
+    "SCN1A",
+    "SCN2A",
+    "SCN3A",
+    "SCN8A",
+    "SCN9A",
+    "KCNA1",
+    "KCNA2",
+    "KCNQ2",
+    "KCNQ3",
+    "HCN1",
+    "HCN2",
+    "HCN4",
+    "NISCH",
+    "PPP1R1B",
+    "ALDH2",
+    "NOS1",
+    "TRPV1"
+  ],
+  "metadata": {
+    "HTR1A": {
+      "gene_name": "5-hydroxytryptamine receptor 1A",
+      "system": "Serotonin",
+      "category": "Receptor (GPCR)",
+      "notes": "Gi-coupled; anxiety, depression target",
+      "description": "5-hydroxytryptamine receptor 1A gene expression"
+    },
+    "HTR1B": {
+      "gene_name": "5-hydroxytryptamine receptor 1B",
+      "system": "Serotonin",
+      "category": "Receptor (GPCR)",
+      "notes": "Gi-coupled; autoreceptor",
+      "description": "5-hydroxytryptamine receptor 1B gene expression"
+    },
+    "HTR1D": {
+      "gene_name": "5-hydroxytryptamine receptor 1D",
+      "system": "Serotonin",
+      "category": "Receptor (GPCR)",
+      "notes": "Gi-coupled; migraine target",
+      "description": "5-hydroxytryptamine receptor 1D gene expression"
+    },
+    "HTR1E": {
+      "gene_name": "5-hydroxytryptamine receptor 1E",
+      "system": "Serotonin",
+      "category": "Receptor (GPCR)",
+      "notes": "Gi-coupled",
+      "description": "5-hydroxytryptamine receptor 1E gene expression"
+    },
+    "HTR1F": {
+      "gene_name": "5-hydroxytryptamine receptor 1F",
+      "system": "Serotonin",
+      "category": "Receptor (GPCR)",
+      "notes": "Gi-coupled; migraine (lasmiditan)",
+      "description": "5-hydroxytryptamine receptor 1F gene expression"
+    },
+    "HTR2A": {
+      "gene_name": "5-hydroxytryptamine receptor 2A",
+      "system": "Serotonin",
+      "category": "Receptor (GPCR)",
+      "notes": "Gq-coupled; psychedelic target, antipsychotic target",
+      "description": "5-hydroxytryptamine receptor 2A gene expression"
+    },
+    "HTR2B": {
+      "gene_name": "5-hydroxytryptamine receptor 2B",
+      "system": "Serotonin",
+      "category": "Receptor (GPCR)",
+      "notes": "Gq-coupled; valvulopathy risk",
+      "description": "5-hydroxytryptamine receptor 2B gene expression"
+    },
+    "HTR2C": {
+      "gene_name": "5-hydroxytryptamine receptor 2C",
+      "system": "Serotonin",
+      "category": "Receptor (GPCR)",
+      "notes": "Gq-coupled; appetite, mood",
+      "description": "5-hydroxytryptamine receptor 2C gene expression"
+    },
+    "HTR3A": {
+      "gene_name": "5-hydroxytryptamine receptor 3A",
+      "system": "Serotonin",
+      "category": "Receptor (LGIC)",
+      "notes": "Cation channel subunit; nausea",
+      "description": "5-hydroxytryptamine receptor 3A gene expression"
+    },
+    "HTR3B": {
+      "gene_name": "5-hydroxytryptamine receptor 3B",
+      "system": "Serotonin",
+      "category": "Receptor (LGIC)",
+      "notes": "Cation channel subunit",
+      "description": "5-hydroxytryptamine receptor 3B gene expression"
+    },
+    "HTR3C": {
+      "gene_name": "5-hydroxytryptamine receptor 3C",
+      "system": "Serotonin",
+      "category": "Receptor (LGIC)",
+      "notes": "Cation channel subunit",
+      "description": "5-hydroxytryptamine receptor 3C gene expression"
+    },
+    "HTR3D": {
+      "gene_name": "5-hydroxytryptamine receptor 3D",
+      "system": "Serotonin",
+      "category": "Receptor (LGIC)",
+      "notes": "Cation channel subunit",
+      "description": "5-hydroxytryptamine receptor 3D gene expression"
+    },
+    "HTR3E": {
+      "gene_name": "5-hydroxytryptamine receptor 3E",
+      "system": "Serotonin",
+      "category": "Receptor (LGIC)",
+      "notes": "Cation channel subunit",
+      "description": "5-hydroxytryptamine receptor 3E gene expression"
+    },
+    "HTR4": {
+      "gene_name": "5-hydroxytryptamine receptor 4",
+      "system": "Serotonin",
+      "category": "Receptor (GPCR)",
+      "notes": "Gs-coupled; cognition, GI motility",
+      "description": "5-hydroxytryptamine receptor 4 gene expression"
+    },
+    "HTR5A": {
+      "gene_name": "5-hydroxytryptamine receptor 5A",
+      "system": "Serotonin",
+      "category": "Receptor (GPCR)",
+      "notes": "Gi-coupled; poorly characterized",
+      "description": "5-hydroxytryptamine receptor 5A gene expression"
+    },
+    "HTR6": {
+      "gene_name": "5-hydroxytryptamine receptor 6",
+      "system": "Serotonin",
+      "category": "Receptor (GPCR)",
+      "notes": "Gs-coupled; cognition target",
+      "description": "5-hydroxytryptamine receptor 6 gene expression"
+    },
+    "HTR7": {
+      "gene_name": "5-hydroxytryptamine receptor 7",
+      "system": "Serotonin",
+      "category": "Receptor (GPCR)",
+      "notes": "Gs-coupled; circadian rhythm, mood",
+      "description": "5-hydroxytryptamine receptor 7 gene expression"
+    },
+    "SLC6A4": {
+      "gene_name": "Solute carrier family 6 member 4 (SERT)",
+      "system": "Serotonin",
+      "category": "Transporter (reuptake)",
+      "notes": "Serotonin transporter; SSRI target",
+      "description": "Solute carrier family 6 member 4 (SERT) gene expression"
+    },
+    "TPH1": {
+      "gene_name": "Tryptophan hydroxylase 1",
+      "system": "Serotonin",
+      "category": "Synthesis enzyme",
+      "notes": "Peripheral serotonin synthesis",
+      "description": "Tryptophan hydroxylase 1 gene expression"
+    },
+    "TPH2": {
+      "gene_name": "Tryptophan hydroxylase 2",
+      "system": "Serotonin",
+      "category": "Synthesis enzyme",
+      "notes": "Brain-specific serotonin synthesis; rate-limiting",
+      "description": "Tryptophan hydroxylase 2 gene expression"
+    },
+    "DDC": {
+      "gene_name": "DOPA decarboxylase",
+      "system": "Serotonin/Dopamine",
+      "category": "Synthesis enzyme",
+      "notes": "Also called AADC; converts 5-HTP\u21925-HT and L-DOPA\u2192DA",
+      "description": "DOPA decarboxylase gene expression"
+    },
+    "MAOA": {
+      "gene_name": "Monoamine oxidase A",
+      "system": "Serotonin/Norepinephrine",
+      "category": "Degradation enzyme",
+      "notes": "Preferentially degrades 5-HT, NE; MAO-I target",
+      "description": "Monoamine oxidase A gene expression"
+    },
+    "MAOB": {
+      "gene_name": "Monoamine oxidase B",
+      "system": "Dopamine",
+      "category": "Degradation enzyme",
+      "notes": "Preferentially degrades DA, PEA; selegiline target",
+      "description": "Monoamine oxidase B gene expression"
+    },
+    "DRD1": {
+      "gene_name": "Dopamine receptor D1",
+      "system": "Dopamine",
+      "category": "Receptor (GPCR)",
+      "notes": "Gs-coupled; D1-like family",
+      "description": "Dopamine receptor D1 gene expression"
+    },
+    "DRD2": {
+      "gene_name": "Dopamine receptor D2",
+      "system": "Dopamine",
+      "category": "Receptor (GPCR)",
+      "notes": "Gi-coupled; D2-like; antipsychotic target",
+      "description": "Dopamine receptor D2 gene expression"
+    },
+    "DRD3": {
+      "gene_name": "Dopamine receptor D3",
+      "system": "Dopamine",
+      "category": "Receptor (GPCR)",
+      "notes": "Gi-coupled; D2-like family",
+      "description": "Dopamine receptor D3 gene expression"
+    },
+    "DRD4": {
+      "gene_name": "Dopamine receptor D4",
+      "system": "Dopamine",
+      "category": "Receptor (GPCR)",
+      "notes": "Gi-coupled; D2-like; ADHD association",
+      "description": "Dopamine receptor D4 gene expression"
+    },
+    "DRD5": {
+      "gene_name": "Dopamine receptor D5",
+      "system": "Dopamine",
+      "category": "Receptor (GPCR)",
+      "notes": "Gs-coupled; D1-like family",
+      "description": "Dopamine receptor D5 gene expression"
+    },
+    "SLC6A3": {
+      "gene_name": "Solute carrier family 6 member 3 (DAT)",
+      "system": "Dopamine",
+      "category": "Transporter (reuptake)",
+      "notes": "Dopamine transporter; cocaine/amphetamine target",
+      "description": "Solute carrier family 6 member 3 (DAT) gene expression"
+    },
+    "TH": {
+      "gene_name": "Tyrosine hydroxylase",
+      "system": "Dopamine/Norepinephrine",
+      "category": "Synthesis enzyme",
+      "notes": "Rate-limiting for all catecholamines",
+      "description": "Tyrosine hydroxylase gene expression"
+    },
+    "COMT": {
+      "gene_name": "Catechol-O-methyltransferase",
+      "system": "Dopamine/Norepinephrine",
+      "category": "Degradation enzyme",
+      "notes": "Degrades DA and NE; Val158Met polymorphism; prefrontal DA regulation",
+      "description": "Catechol-O-methyltransferase gene expression"
+    },
+    "ADRA1A": {
+      "gene_name": "Adrenoceptor alpha 1A",
+      "system": "Norepinephrine",
+      "category": "Receptor (GPCR)",
+      "notes": "Gq-coupled; vasoconstriction",
+      "description": "Adrenoceptor alpha 1A gene expression"
+    },
+    "ADRA1B": {
+      "gene_name": "Adrenoceptor alpha 1B",
+      "system": "Norepinephrine",
+      "category": "Receptor (GPCR)",
+      "notes": "Gq-coupled",
+      "description": "Adrenoceptor alpha 1B gene expression"
+    },
+    "ADRA1D": {
+      "gene_name": "Adrenoceptor alpha 1D",
+      "system": "Norepinephrine",
+      "category": "Receptor (GPCR)",
+      "notes": "Gq-coupled",
+      "description": "Adrenoceptor alpha 1D gene expression"
+    },
+    "ADRA2A": {
+      "gene_name": "Adrenoceptor alpha 2A",
+      "system": "Norepinephrine",
+      "category": "Receptor (GPCR)",
+      "notes": "Gi-coupled; autoreceptor; clonidine/guanfacine target",
+      "description": "Adrenoceptor alpha 2A gene expression"
+    },
+    "ADRA2B": {
+      "gene_name": "Adrenoceptor alpha 2B",
+      "system": "Norepinephrine",
+      "category": "Receptor (GPCR)",
+      "notes": "Gi-coupled",
+      "description": "Adrenoceptor alpha 2B gene expression"
+    },
+    "ADRA2C": {
+      "gene_name": "Adrenoceptor alpha 2C",
+      "system": "Norepinephrine",
+      "category": "Receptor (GPCR)",
+      "notes": "Gi-coupled; LC presynaptic",
+      "description": "Adrenoceptor alpha 2C gene expression"
+    },
+    "ADRB1": {
+      "gene_name": "Adrenoceptor beta 1",
+      "system": "Norepinephrine",
+      "category": "Receptor (GPCR)",
+      "notes": "Gs-coupled; cardiac; beta-blocker target",
+      "description": "Adrenoceptor beta 1 gene expression"
+    },
+    "ADRB2": {
+      "gene_name": "Adrenoceptor beta 2",
+      "system": "Norepinephrine",
+      "category": "Receptor (GPCR)",
+      "notes": "Gs-coupled; bronchodilation",
+      "description": "Adrenoceptor beta 2 gene expression"
+    },
+    "ADRB3": {
+      "gene_name": "Adrenoceptor beta 3",
+      "system": "Norepinephrine",
+      "category": "Receptor (GPCR)",
+      "notes": "Gs-coupled; adipose tissue",
+      "description": "Adrenoceptor beta 3 gene expression"
+    },
+    "SLC6A2": {
+      "gene_name": "Solute carrier family 6 member 2 (NET)",
+      "system": "Norepinephrine",
+      "category": "Transporter (reuptake)",
+      "notes": "Norepinephrine transporter; SNRI/atomoxetine target",
+      "description": "Solute carrier family 6 member 2 (NET) gene expression"
+    },
+    "DBH": {
+      "gene_name": "Dopamine beta-hydroxylase",
+      "system": "Norepinephrine",
+      "category": "Synthesis enzyme",
+      "notes": "Converts dopamine \u2192 norepinephrine",
+      "description": "Dopamine beta-hydroxylase gene expression"
+    },
+    "PNMT": {
+      "gene_name": "Phenylethanolamine N-methyltransferase",
+      "system": "Epinephrine",
+      "category": "Synthesis enzyme",
+      "notes": "Converts NE \u2192 epinephrine; adrenal medulla",
+      "description": "Phenylethanolamine N-methyltransferase gene expression"
+    },
+    "GABRA1": {
+      "gene_name": "GABA-A receptor subunit alpha 1",
+      "system": "GABA",
+      "category": "Receptor (LGIC) subunit",
+      "notes": "GABA-A alpha-1; benzodiazepine/barbiturate site",
+      "description": "GABA-A receptor subunit alpha 1 gene expression"
+    },
+    "GABRA2": {
+      "gene_name": "GABA-A receptor subunit alpha 2",
+      "system": "GABA",
+      "category": "Receptor (LGIC) subunit",
+      "notes": "GABA-A alpha-2; benzodiazepine/barbiturate site",
+      "description": "GABA-A receptor subunit alpha 2 gene expression"
+    },
+    "GABRA3": {
+      "gene_name": "GABA-A receptor subunit alpha 3",
+      "system": "GABA",
+      "category": "Receptor (LGIC) subunit",
+      "notes": "GABA-A alpha-3; benzodiazepine/barbiturate site",
+      "description": "GABA-A receptor subunit alpha 3 gene expression"
+    },
+    "GABRA4": {
+      "gene_name": "GABA-A receptor subunit alpha 4",
+      "system": "GABA",
+      "category": "Receptor (LGIC) subunit",
+      "notes": "GABA-A alpha-4; benzodiazepine/barbiturate site",
+      "description": "GABA-A receptor subunit alpha 4 gene expression"
+    },
+    "GABRA5": {
+      "gene_name": "GABA-A receptor subunit alpha 5",
+      "system": "GABA",
+      "category": "Receptor (LGIC) subunit",
+      "notes": "GABA-A alpha-5; benzodiazepine/barbiturate site",
+      "description": "GABA-A receptor subunit alpha 5 gene expression"
+    },
+    "GABRA6": {
+      "gene_name": "GABA-A receptor subunit alpha 6",
+      "system": "GABA",
+      "category": "Receptor (LGIC) subunit",
+      "notes": "GABA-A alpha-6; benzodiazepine/barbiturate site",
+      "description": "GABA-A receptor subunit alpha 6 gene expression"
+    },
+    "GABRB1": {
+      "gene_name": "GABA-A receptor subunit beta 1",
+      "system": "GABA",
+      "category": "Receptor (LGIC) subunit",
+      "notes": "GABA-A beta-1",
+      "description": "GABA-A receptor subunit beta 1 gene expression"
+    },
+    "GABRB2": {
+      "gene_name": "GABA-A receptor subunit beta 2",
+      "system": "GABA",
+      "category": "Receptor (LGIC) subunit",
+      "notes": "GABA-A beta-2",
+      "description": "GABA-A receptor subunit beta 2 gene expression"
+    },
+    "GABRB3": {
+      "gene_name": "GABA-A receptor subunit beta 3",
+      "system": "GABA",
+      "category": "Receptor (LGIC) subunit",
+      "notes": "GABA-A beta-3",
+      "description": "GABA-A receptor subunit beta 3 gene expression"
+    },
+    "GABRG1": {
+      "gene_name": "GABA-A receptor subunit gamma 1",
+      "system": "GABA",
+      "category": "Receptor (LGIC) subunit",
+      "notes": "GABA-A gamma-1; gamma-2 required for BZD binding",
+      "description": "GABA-A receptor subunit gamma 1 gene expression"
+    },
+    "GABRG2": {
+      "gene_name": "GABA-A receptor subunit gamma 2",
+      "system": "GABA",
+      "category": "Receptor (LGIC) subunit",
+      "notes": "GABA-A gamma-2; gamma-2 required for BZD binding",
+      "description": "GABA-A receptor subunit gamma 2 gene expression"
+    },
+    "GABRG3": {
+      "gene_name": "GABA-A receptor subunit gamma 3",
+      "system": "GABA",
+      "category": "Receptor (LGIC) subunit",
+      "notes": "GABA-A gamma-3; gamma-2 required for BZD binding",
+      "description": "GABA-A receptor subunit gamma 3 gene expression"
+    },
+    "GABRD": {
+      "gene_name": "GABA-A receptor subunit delta",
+      "system": "GABA",
+      "category": "Receptor (LGIC) subunit",
+      "notes": "Extrasynaptic tonic inhibition; neurosteroid target; ethanol high-affinity",
+      "description": "GABA-A receptor subunit delta gene expression"
+    },
+    "GABRE": {
+      "gene_name": "GABA-A receptor subunit epsilon",
+      "system": "GABA",
+      "category": "Receptor (LGIC) subunit",
+      "notes": "Constitutively active",
+      "description": "GABA-A receptor subunit epsilon gene expression"
+    },
+    "GABRP": {
+      "gene_name": "GABA-A receptor subunit pi",
+      "system": "GABA",
+      "category": "Receptor (LGIC) subunit",
+      "notes": "Expressed in uterus and some brain regions",
+      "description": "GABA-A receptor subunit pi gene expression"
+    },
+    "GABRQ": {
+      "gene_name": "GABA-A receptor subunit theta",
+      "system": "GABA",
+      "category": "Receptor (LGIC) subunit",
+      "notes": "Limited expression",
+      "description": "GABA-A receptor subunit theta gene expression"
+    },
+    "GABRR1": {
+      "gene_name": "GABA-A receptor subunit rho 1",
+      "system": "GABA",
+      "category": "Receptor (LGIC) subunit",
+      "notes": "Former GABA-C receptor rho-1; retina",
+      "description": "GABA-A receptor subunit rho 1 gene expression"
+    },
+    "GABRR2": {
+      "gene_name": "GABA-A receptor subunit rho 2",
+      "system": "GABA",
+      "category": "Receptor (LGIC) subunit",
+      "notes": "Former GABA-C receptor rho-2; retina",
+      "description": "GABA-A receptor subunit rho 2 gene expression"
+    },
+    "GABRR3": {
+      "gene_name": "GABA-A receptor subunit rho 3",
+      "system": "GABA",
+      "category": "Receptor (LGIC) subunit",
+      "notes": "Former GABA-C receptor rho-3; retina",
+      "description": "GABA-A receptor subunit rho 3 gene expression"
+    },
+    "GABBR1": {
+      "gene_name": "GABA-B receptor subunit 1",
+      "system": "GABA",
+      "category": "Receptor (GPCR)",
+      "notes": "Gi-coupled; forms heterodimer with GABBR2; baclofen target",
+      "description": "GABA-B receptor subunit 1 gene expression"
+    },
+    "GABBR2": {
+      "gene_name": "GABA-B receptor subunit 2",
+      "system": "GABA",
+      "category": "Receptor (GPCR)",
+      "notes": "Gi-coupled; obligate heterodimer with GABBR1",
+      "description": "GABA-B receptor subunit 2 gene expression"
+    },
+    "SLC6A1": {
+      "gene_name": "Solute carrier family 6 member 1 (GAT1)",
+      "system": "GABA",
+      "category": "Transporter (reuptake)",
+      "notes": "GABA transporter 1; tiagabine target",
+      "description": "Solute carrier family 6 member 1 (GAT1) gene expression"
+    },
+    "SLC6A11": {
+      "gene_name": "Solute carrier family 6 member 11 (GAT3)",
+      "system": "GABA",
+      "category": "Transporter (reuptake)",
+      "notes": "GABA transporter 3; astrocytic",
+      "description": "Solute carrier family 6 member 11 (GAT3) gene expression"
+    },
+    "SLC6A13": {
+      "gene_name": "Solute carrier family 6 member 13 (GAT2)",
+      "system": "GABA",
+      "category": "Transporter (reuptake)",
+      "notes": "GABA transporter 2; also betaine transporter",
+      "description": "Solute carrier family 6 member 13 (GAT2) gene expression"
+    },
+    "SLC32A1": {
+      "gene_name": "Solute carrier family 32 member 1 (VGAT)",
+      "system": "GABA/Glycine",
+      "category": "Transporter (vesicular)",
+      "notes": "Vesicular inhibitory amino acid transporter; loads GABA+glycine into vesicles",
+      "description": "Solute carrier family 32 member 1 (VGAT) gene expression"
+    },
+    "GAD1": {
+      "gene_name": "Glutamate decarboxylase 1 (GAD67)",
+      "system": "GABA",
+      "category": "Synthesis enzyme",
+      "notes": "Converts glutamate \u2192 GABA; constitutive; 67 kDa",
+      "description": "Glutamate decarboxylase 1 (GAD67) gene expression"
+    },
+    "GAD2": {
+      "gene_name": "Glutamate decarboxylase 2 (GAD65)",
+      "system": "GABA",
+      "category": "Synthesis enzyme",
+      "notes": "Converts glutamate \u2192 GABA; synaptic vesicle-associated; 65 kDa",
+      "description": "Glutamate decarboxylase 2 (GAD65) gene expression"
+    },
+    "ABAT": {
+      "gene_name": "4-aminobutyrate aminotransferase",
+      "system": "GABA",
+      "category": "Degradation enzyme",
+      "notes": "GABA transaminase; vigabatrin target",
+      "description": "4-aminobutyrate aminotransferase gene expression"
+    },
+    "GRIA1": {
+      "gene_name": "Glutamate ionotropic AMPA receptor subunit 1",
+      "system": "Glutamate",
+      "category": "Receptor (LGIC) subunit",
+      "notes": "AMPA GluA1; fast excitatory transmission; racetam/ampakine target",
+      "description": "Glutamate ionotropic AMPA receptor subunit 1 gene expression"
+    },
+    "GRIA2": {
+      "gene_name": "Glutamate ionotropic AMPA receptor subunit 2",
+      "system": "Glutamate",
+      "category": "Receptor (LGIC) subunit",
+      "notes": "AMPA GluA2; fast excitatory transmission; racetam/ampakine target",
+      "description": "Glutamate ionotropic AMPA receptor subunit 2 gene expression"
+    },
+    "GRIA3": {
+      "gene_name": "Glutamate ionotropic AMPA receptor subunit 3",
+      "system": "Glutamate",
+      "category": "Receptor (LGIC) subunit",
+      "notes": "AMPA GluA3; fast excitatory transmission; racetam/ampakine target",
+      "description": "Glutamate ionotropic AMPA receptor subunit 3 gene expression"
+    },
+    "GRIA4": {
+      "gene_name": "Glutamate ionotropic AMPA receptor subunit 4",
+      "system": "Glutamate",
+      "category": "Receptor (LGIC) subunit",
+      "notes": "AMPA GluA4; fast excitatory transmission; racetam/ampakine target",
+      "description": "Glutamate ionotropic AMPA receptor subunit 4 gene expression"
+    },
+    "GRIK1": {
+      "gene_name": "Glutamate ionotropic kainate receptor subunit 1",
+      "system": "Glutamate",
+      "category": "Receptor (LGIC) subunit",
+      "notes": "Kainate GluK1",
+      "description": "Glutamate ionotropic kainate receptor subunit 1 gene expression"
+    },
+    "GRIK2": {
+      "gene_name": "Glutamate ionotropic kainate receptor subunit 2",
+      "system": "Glutamate",
+      "category": "Receptor (LGIC) subunit",
+      "notes": "Kainate GluK2",
+      "description": "Glutamate ionotropic kainate receptor subunit 2 gene expression"
+    },
+    "GRIK3": {
+      "gene_name": "Glutamate ionotropic kainate receptor subunit 3",
+      "system": "Glutamate",
+      "category": "Receptor (LGIC) subunit",
+      "notes": "Kainate GluK3",
+      "description": "Glutamate ionotropic kainate receptor subunit 3 gene expression"
+    },
+    "GRIK4": {
+      "gene_name": "Glutamate ionotropic kainate receptor subunit 4",
+      "system": "Glutamate",
+      "category": "Receptor (LGIC) subunit",
+      "notes": "Kainate GluK4",
+      "description": "Glutamate ionotropic kainate receptor subunit 4 gene expression"
+    },
+    "GRIK5": {
+      "gene_name": "Glutamate ionotropic kainate receptor subunit 5",
+      "system": "Glutamate",
+      "category": "Receptor (LGIC) subunit",
+      "notes": "Kainate GluK5",
+      "description": "Glutamate ionotropic kainate receptor subunit 5 gene expression"
+    },
+    "GRIN1": {
+      "gene_name": "Glutamate ionotropic NMDA receptor subunit 1",
+      "system": "Glutamate",
+      "category": "Receptor (LGIC) subunit",
+      "notes": "Obligate subunit; glycine-binding; ketamine/memantine site",
+      "description": "Glutamate ionotropic NMDA receptor subunit 1 gene expression"
+    },
+    "GRIN2A": {
+      "gene_name": "Glutamate ionotropic NMDA receptor subunit 2A",
+      "system": "Glutamate",
+      "category": "Receptor (LGIC) subunit",
+      "notes": "GluN2A; glutamate-binding",
+      "description": "Glutamate ionotropic NMDA receptor subunit 2A gene expression"
+    },
+    "GRIN2B": {
+      "gene_name": "Glutamate ionotropic NMDA receptor subunit 2B",
+      "system": "Glutamate",
+      "category": "Receptor (LGIC) subunit",
+      "notes": "GluN2B; glutamate-binding; ifenprodil site",
+      "description": "Glutamate ionotropic NMDA receptor subunit 2B gene expression"
+    },
+    "GRIN2C": {
+      "gene_name": "Glutamate ionotropic NMDA receptor subunit 2C",
+      "system": "Glutamate",
+      "category": "Receptor (LGIC) subunit",
+      "notes": "GluN2C; cerebellum-enriched",
+      "description": "Glutamate ionotropic NMDA receptor subunit 2C gene expression"
+    },
+    "GRIN2D": {
+      "gene_name": "Glutamate ionotropic NMDA receptor subunit 2D",
+      "system": "Glutamate",
+      "category": "Receptor (LGIC) subunit",
+      "notes": "GluN2D; diencephalon/brainstem",
+      "description": "Glutamate ionotropic NMDA receptor subunit 2D gene expression"
+    },
+    "GRIN3A": {
+      "gene_name": "Glutamate ionotropic NMDA receptor subunit 3A",
+      "system": "Glutamate",
+      "category": "Receptor (LGIC) subunit",
+      "notes": "GluN3A; glycine-binding; modulatory",
+      "description": "Glutamate ionotropic NMDA receptor subunit 3A gene expression"
+    },
+    "GRIN3B": {
+      "gene_name": "Glutamate ionotropic NMDA receptor subunit 3B",
+      "system": "Glutamate",
+      "category": "Receptor (LGIC) subunit",
+      "notes": "GluN3B; glycine-binding",
+      "description": "Glutamate ionotropic NMDA receptor subunit 3B gene expression"
+    },
+    "GRM1": {
+      "gene_name": "Glutamate metabotropic receptor 1",
+      "system": "Glutamate",
+      "category": "Receptor (GPCR)",
+      "notes": "Group I; Gq-coupled; postsynaptic",
+      "description": "Glutamate metabotropic receptor 1 gene expression"
+    },
+    "GRM2": {
+      "gene_name": "Glutamate metabotropic receptor 2",
+      "system": "Glutamate",
+      "category": "Receptor (GPCR)",
+      "notes": "Group II; Gi-coupled; presynaptic autoreceptor",
+      "description": "Glutamate metabotropic receptor 2 gene expression"
+    },
+    "GRM3": {
+      "gene_name": "Glutamate metabotropic receptor 3",
+      "system": "Glutamate",
+      "category": "Receptor (GPCR)",
+      "notes": "Group II; Gi-coupled; glial expression",
+      "description": "Glutamate metabotropic receptor 3 gene expression"
+    },
+    "GRM4": {
+      "gene_name": "Glutamate metabotropic receptor 4",
+      "system": "Glutamate",
+      "category": "Receptor (GPCR)",
+      "notes": "Group III; Gi-coupled",
+      "description": "Glutamate metabotropic receptor 4 gene expression"
+    },
+    "GRM5": {
+      "gene_name": "Glutamate metabotropic receptor 5",
+      "system": "Glutamate",
+      "category": "Receptor (GPCR)",
+      "notes": "Group I; Gq-coupled; postsynaptic",
+      "description": "Glutamate metabotropic receptor 5 gene expression"
+    },
+    "GRM6": {
+      "gene_name": "Glutamate metabotropic receptor 6",
+      "system": "Glutamate",
+      "category": "Receptor (GPCR)",
+      "notes": "Group III; retina ON-bipolar cells",
+      "description": "Glutamate metabotropic receptor 6 gene expression"
+    },
+    "GRM7": {
+      "gene_name": "Glutamate metabotropic receptor 7",
+      "system": "Glutamate",
+      "category": "Receptor (GPCR)",
+      "notes": "Group III; Gi-coupled; presynaptic",
+      "description": "Glutamate metabotropic receptor 7 gene expression"
+    },
+    "GRM8": {
+      "gene_name": "Glutamate metabotropic receptor 8",
+      "system": "Glutamate",
+      "category": "Receptor (GPCR)",
+      "notes": "Group III; Gi-coupled",
+      "description": "Glutamate metabotropic receptor 8 gene expression"
+    },
+    "GRID1": {
+      "gene_name": "Glutamate ionotropic delta receptor subunit 1",
+      "system": "Glutamate",
+      "category": "Receptor (LGIC-orphan)",
+      "notes": "GluD1; synaptogenesis",
+      "description": "Glutamate ionotropic delta receptor subunit 1 gene expression"
+    },
+    "GRID2": {
+      "gene_name": "Glutamate ionotropic delta receptor subunit 2",
+      "system": "Glutamate",
+      "category": "Receptor (LGIC-orphan)",
+      "notes": "GluD2; cerebellar Purkinje cells",
+      "description": "Glutamate ionotropic delta receptor subunit 2 gene expression"
+    },
+    "SLC17A7": {
+      "gene_name": "Solute carrier family 17 member 7 (VGLUT1)",
+      "system": "Glutamate",
+      "category": "Transporter (vesicular)",
+      "notes": "Vesicular glutamate transporter 1; cortical",
+      "description": "Solute carrier family 17 member 7 (VGLUT1) gene expression"
+    },
+    "SLC17A6": {
+      "gene_name": "Solute carrier family 17 member 6 (VGLUT2)",
+      "system": "Glutamate",
+      "category": "Transporter (vesicular)",
+      "notes": "Vesicular glutamate transporter 2; subcortical",
+      "description": "Solute carrier family 17 member 6 (VGLUT2) gene expression"
+    },
+    "SLC17A8": {
+      "gene_name": "Solute carrier family 17 member 8 (VGLUT3)",
+      "system": "Glutamate",
+      "category": "Transporter (vesicular)",
+      "notes": "Vesicular glutamate transporter 3; co-transmitter",
+      "description": "Solute carrier family 17 member 8 (VGLUT3) gene expression"
+    },
+    "SLC1A1": {
+      "gene_name": "Solute carrier family 1 member 1 (EAAC1/EAAT3)",
+      "system": "Glutamate",
+      "category": "Transporter (reuptake)",
+      "notes": "Neuronal glutamate transporter",
+      "description": "Solute carrier family 1 member 1 (EAAC1/EAAT3) gene expression"
+    },
+    "SLC1A2": {
+      "gene_name": "Solute carrier family 1 member 2 (GLT-1/EAAT2)",
+      "system": "Glutamate",
+      "category": "Transporter (reuptake)",
+      "notes": "Major astrocytic glutamate transporter; 90% of glutamate clearance",
+      "description": "Solute carrier family 1 member 2 (GLT-1/EAAT2) gene expression"
+    },
+    "SLC1A3": {
+      "gene_name": "Solute carrier family 1 member 3 (GLAST/EAAT1)",
+      "system": "Glutamate",
+      "category": "Transporter (reuptake)",
+      "notes": "Astrocytic glutamate transporter; cerebellum-enriched",
+      "description": "Solute carrier family 1 member 3 (GLAST/EAAT1) gene expression"
+    },
+    "SLC1A6": {
+      "gene_name": "Solute carrier family 1 member 6 (EAAT4)",
+      "system": "Glutamate",
+      "category": "Transporter (reuptake)",
+      "notes": "Purkinje cell glutamate transporter",
+      "description": "Solute carrier family 1 member 6 (EAAT4) gene expression"
+    },
+    "SLC1A7": {
+      "gene_name": "Solute carrier family 1 member 7 (EAAT5)",
+      "system": "Glutamate",
+      "category": "Transporter (reuptake)",
+      "notes": "Retinal glutamate transporter",
+      "description": "Solute carrier family 1 member 7 (EAAT5) gene expression"
+    },
+    "GLS": {
+      "gene_name": "Glutaminase",
+      "system": "Glutamate",
+      "category": "Synthesis enzyme",
+      "notes": "Converts glutamine \u2192 glutamate in neurons",
+      "description": "Glutaminase gene expression"
+    },
+    "GLS2": {
+      "gene_name": "Glutaminase 2",
+      "system": "Glutamate",
+      "category": "Synthesis enzyme",
+      "notes": "Liver-type glutaminase; some brain expression",
+      "description": "Glutaminase 2 gene expression"
+    },
+    "GLUL": {
+      "gene_name": "Glutamine synthetase",
+      "system": "Glutamate",
+      "category": "Metabolism enzyme",
+      "notes": "Converts glutamate \u2192 glutamine in astrocytes; glutamate-glutamine cycle",
+      "description": "Glutamine synthetase gene expression"
+    },
+    "CHRNA1": {
+      "gene_name": "Cholinergic receptor nicotinic alpha 1",
+      "system": "Acetylcholine",
+      "category": "Receptor (LGIC) subunit",
+      "notes": "nAChR alpha 1; neuromuscular/sensory",
+      "description": "Cholinergic receptor nicotinic alpha 1 gene expression"
+    },
+    "CHRNA2": {
+      "gene_name": "Cholinergic receptor nicotinic alpha 2",
+      "system": "Acetylcholine",
+      "category": "Receptor (LGIC) subunit",
+      "notes": "nAChR alpha 2; brain nicotinic",
+      "description": "Cholinergic receptor nicotinic alpha 2 gene expression"
+    },
+    "CHRNA3": {
+      "gene_name": "Cholinergic receptor nicotinic alpha 3",
+      "system": "Acetylcholine",
+      "category": "Receptor (LGIC) subunit",
+      "notes": "nAChR alpha 3; brain nicotinic",
+      "description": "Cholinergic receptor nicotinic alpha 3 gene expression"
+    },
+    "CHRNA4": {
+      "gene_name": "Cholinergic receptor nicotinic alpha 4",
+      "system": "Acetylcholine",
+      "category": "Receptor (LGIC) subunit",
+      "notes": "nAChR alpha 4; brain nicotinic",
+      "description": "Cholinergic receptor nicotinic alpha 4 gene expression"
+    },
+    "CHRNA5": {
+      "gene_name": "Cholinergic receptor nicotinic alpha 5",
+      "system": "Acetylcholine",
+      "category": "Receptor (LGIC) subunit",
+      "notes": "nAChR alpha 5; brain nicotinic",
+      "description": "Cholinergic receptor nicotinic alpha 5 gene expression"
+    },
+    "CHRNA6": {
+      "gene_name": "Cholinergic receptor nicotinic alpha 6",
+      "system": "Acetylcholine",
+      "category": "Receptor (LGIC) subunit",
+      "notes": "nAChR alpha 6; brain nicotinic",
+      "description": "Cholinergic receptor nicotinic alpha 6 gene expression"
+    },
+    "CHRNA7": {
+      "gene_name": "Cholinergic receptor nicotinic alpha 7",
+      "system": "Acetylcholine",
+      "category": "Receptor (LGIC) subunit",
+      "notes": "nAChR alpha 7; brain nicotinic",
+      "description": "Cholinergic receptor nicotinic alpha 7 gene expression"
+    },
+    "CHRNA9": {
+      "gene_name": "Cholinergic receptor nicotinic alpha 9",
+      "system": "Acetylcholine",
+      "category": "Receptor (LGIC) subunit",
+      "notes": "nAChR alpha 9; neuromuscular/sensory",
+      "description": "Cholinergic receptor nicotinic alpha 9 gene expression"
+    },
+    "CHRNA10": {
+      "gene_name": "Cholinergic receptor nicotinic alpha 10",
+      "system": "Acetylcholine",
+      "category": "Receptor (LGIC) subunit",
+      "notes": "nAChR alpha 10; neuromuscular/sensory",
+      "description": "Cholinergic receptor nicotinic alpha 10 gene expression"
+    },
+    "CHRNB1": {
+      "gene_name": "Cholinergic receptor nicotinic beta 1",
+      "system": "Acetylcholine",
+      "category": "Receptor (LGIC) subunit",
+      "notes": "nAChR beta 1",
+      "description": "Cholinergic receptor nicotinic beta 1 gene expression"
+    },
+    "CHRNB2": {
+      "gene_name": "Cholinergic receptor nicotinic beta 2",
+      "system": "Acetylcholine",
+      "category": "Receptor (LGIC) subunit",
+      "notes": "nAChR beta 2",
+      "description": "Cholinergic receptor nicotinic beta 2 gene expression"
+    },
+    "CHRNB3": {
+      "gene_name": "Cholinergic receptor nicotinic beta 3",
+      "system": "Acetylcholine",
+      "category": "Receptor (LGIC) subunit",
+      "notes": "nAChR beta 3",
+      "description": "Cholinergic receptor nicotinic beta 3 gene expression"
+    },
+    "CHRNB4": {
+      "gene_name": "Cholinergic receptor nicotinic beta 4",
+      "system": "Acetylcholine",
+      "category": "Receptor (LGIC) subunit",
+      "notes": "nAChR beta 4",
+      "description": "Cholinergic receptor nicotinic beta 4 gene expression"
+    },
+    "CHRND": {
+      "gene_name": "Cholinergic receptor nicotinic delta",
+      "system": "Acetylcholine",
+      "category": "Receptor (LGIC) subunit",
+      "notes": "Neuromuscular junction",
+      "description": "Cholinergic receptor nicotinic delta gene expression"
+    },
+    "CHRNE": {
+      "gene_name": "Cholinergic receptor nicotinic epsilon",
+      "system": "Acetylcholine",
+      "category": "Receptor (LGIC) subunit",
+      "notes": "Adult neuromuscular junction",
+      "description": "Cholinergic receptor nicotinic epsilon gene expression"
+    },
+    "CHRNG": {
+      "gene_name": "Cholinergic receptor nicotinic gamma",
+      "system": "Acetylcholine",
+      "category": "Receptor (LGIC) subunit",
+      "notes": "Fetal neuromuscular junction",
+      "description": "Cholinergic receptor nicotinic gamma gene expression"
+    },
+    "CHRM1": {
+      "gene_name": "Cholinergic receptor muscarinic 1",
+      "system": "Acetylcholine",
+      "category": "Receptor (GPCR)",
+      "notes": "M1; Gq-coupled; cortical cognition",
+      "description": "Cholinergic receptor muscarinic 1 gene expression"
+    },
+    "CHRM2": {
+      "gene_name": "Cholinergic receptor muscarinic 2",
+      "system": "Acetylcholine",
+      "category": "Receptor (GPCR)",
+      "notes": "M2; Gi-coupled; cardiac; autoreceptor",
+      "description": "Cholinergic receptor muscarinic 2 gene expression"
+    },
+    "CHRM3": {
+      "gene_name": "Cholinergic receptor muscarinic 3",
+      "system": "Acetylcholine",
+      "category": "Receptor (GPCR)",
+      "notes": "M3; Gq-coupled; smooth muscle, glands",
+      "description": "Cholinergic receptor muscarinic 3 gene expression"
+    },
+    "CHRM4": {
+      "gene_name": "Cholinergic receptor muscarinic 4",
+      "system": "Acetylcholine",
+      "category": "Receptor (GPCR)",
+      "notes": "M4; Gi-coupled; striatum",
+      "description": "Cholinergic receptor muscarinic 4 gene expression"
+    },
+    "CHRM5": {
+      "gene_name": "Cholinergic receptor muscarinic 5",
+      "system": "Acetylcholine",
+      "category": "Receptor (GPCR)",
+      "notes": "M5; Gq-coupled; substantia nigra",
+      "description": "Cholinergic receptor muscarinic 5 gene expression"
+    },
+    "CHAT": {
+      "gene_name": "Choline acetyltransferase",
+      "system": "Acetylcholine",
+      "category": "Synthesis enzyme",
+      "notes": "Synthesizes ACh from choline + acetyl-CoA",
+      "description": "Choline acetyltransferase gene expression"
+    },
+    "ACHE": {
+      "gene_name": "Acetylcholinesterase",
+      "system": "Acetylcholine",
+      "category": "Degradation enzyme",
+      "notes": "Rapid ACh hydrolysis; donepezil/galantamine/rivastigmine target",
+      "description": "Acetylcholinesterase gene expression"
+    },
+    "BCHE": {
+      "gene_name": "Butyrylcholinesterase",
+      "system": "Acetylcholine",
+      "category": "Degradation enzyme",
+      "notes": "Pseudo-cholinesterase; also degrades ACh",
+      "description": "Butyrylcholinesterase gene expression"
+    },
+    "SLC5A7": {
+      "gene_name": "Solute carrier family 5 member 7 (CHT)",
+      "system": "Acetylcholine",
+      "category": "Transporter (reuptake)",
+      "notes": "High-affinity choline transporter; rate-limiting for ACh synthesis",
+      "description": "Solute carrier family 5 member 7 (CHT) gene expression"
+    },
+    "SLC18A3": {
+      "gene_name": "Solute carrier family 18 member 3 (VAChT)",
+      "system": "Acetylcholine",
+      "category": "Transporter (vesicular)",
+      "notes": "Vesicular ACh transporter; loads ACh into vesicles",
+      "description": "Solute carrier family 18 member 3 (VAChT) gene expression"
+    },
+    "OPRM1": {
+      "gene_name": "Opioid receptor mu 1",
+      "system": "Opioid",
+      "category": "Receptor (GPCR)",
+      "notes": "Gi-coupled; morphine/fentanyl/endorphin target",
+      "description": "Opioid receptor mu 1 gene expression"
+    },
+    "OPRD1": {
+      "gene_name": "Opioid receptor delta 1",
+      "system": "Opioid",
+      "category": "Receptor (GPCR)",
+      "notes": "Gi-coupled; enkephalin target",
+      "description": "Opioid receptor delta 1 gene expression"
+    },
+    "OPRK1": {
+      "gene_name": "Opioid receptor kappa 1",
+      "system": "Opioid",
+      "category": "Receptor (GPCR)",
+      "notes": "Gi-coupled; dynorphin; dysphoria; salvinorin A",
+      "description": "Opioid receptor kappa 1 gene expression"
+    },
+    "OPRL1": {
+      "gene_name": "Opioid related nociceptin receptor 1",
+      "system": "Opioid",
+      "category": "Receptor (GPCR)",
+      "notes": "Nociceptin/orphanin FQ receptor (NOP); Gi-coupled",
+      "description": "Opioid related nociceptin receptor 1 gene expression"
+    },
+    "PENK": {
+      "gene_name": "Proenkephalin",
+      "system": "Opioid",
+      "category": "Neuropeptide precursor",
+      "notes": "Precursor of met-enkephalin and leu-enkephalin",
+      "description": "Proenkephalin gene expression"
+    },
+    "PDYN": {
+      "gene_name": "Prodynorphin",
+      "system": "Opioid",
+      "category": "Neuropeptide precursor",
+      "notes": "Precursor of dynorphins (kappa agonists)",
+      "description": "Prodynorphin gene expression"
+    },
+    "POMC": {
+      "gene_name": "Proopiomelanocortin",
+      "system": "Opioid/Melanocortin",
+      "category": "Neuropeptide precursor",
+      "notes": "Precursor of beta-endorphin, ACTH, alpha-MSH",
+      "description": "Proopiomelanocortin gene expression"
+    },
+    "PNOC": {
+      "gene_name": "Prepronociceptin",
+      "system": "Opioid",
+      "category": "Neuropeptide precursor",
+      "notes": "Precursor of nociceptin/orphanin FQ",
+      "description": "Prepronociceptin gene expression"
+    },
+    "HRH1": {
+      "gene_name": "Histamine receptor H1",
+      "system": "Histamine",
+      "category": "Receptor (GPCR)",
+      "notes": "Gq-coupled; sedation when blocked; antihistamine target",
+      "description": "Histamine receptor H1 gene expression"
+    },
+    "HRH2": {
+      "gene_name": "Histamine receptor H2",
+      "system": "Histamine",
+      "category": "Receptor (GPCR)",
+      "notes": "Gs-coupled; gastric acid",
+      "description": "Histamine receptor H2 gene expression"
+    },
+    "HRH3": {
+      "gene_name": "Histamine receptor H3",
+      "system": "Histamine",
+      "category": "Receptor (GPCR)",
+      "notes": "Gi-coupled; autoreceptor; CNS; pitolisant target (narcolepsy)",
+      "description": "Histamine receptor H3 gene expression"
+    },
+    "HRH4": {
+      "gene_name": "Histamine receptor H4",
+      "system": "Histamine",
+      "category": "Receptor (GPCR)",
+      "notes": "Gi-coupled; immune cells",
+      "description": "Histamine receptor H4 gene expression"
+    },
+    "HDC": {
+      "gene_name": "Histidine decarboxylase",
+      "system": "Histamine",
+      "category": "Synthesis enzyme",
+      "notes": "Converts histidine \u2192 histamine",
+      "description": "Histidine decarboxylase gene expression"
+    },
+    "HNMT": {
+      "gene_name": "Histamine N-methyltransferase",
+      "system": "Histamine",
+      "category": "Degradation enzyme",
+      "notes": "Brain histamine degradation",
+      "description": "Histamine N-methyltransferase gene expression"
+    },
+    "GLRA1": {
+      "gene_name": "Glycine receptor alpha 1",
+      "system": "Glycine",
+      "category": "Receptor (LGIC) subunit",
+      "notes": "Inhibitory Cl- channel; spinal cord/brainstem",
+      "description": "Glycine receptor alpha 1 gene expression"
+    },
+    "GLRA2": {
+      "gene_name": "Glycine receptor alpha 2",
+      "system": "Glycine",
+      "category": "Receptor (LGIC) subunit",
+      "notes": "Predominant embryonic form",
+      "description": "Glycine receptor alpha 2 gene expression"
+    },
+    "GLRA3": {
+      "gene_name": "Glycine receptor alpha 3",
+      "system": "Glycine",
+      "category": "Receptor (LGIC) subunit",
+      "notes": "Pain processing; spinal dorsal horn",
+      "description": "Glycine receptor alpha 3 gene expression"
+    },
+    "GLRB": {
+      "gene_name": "Glycine receptor beta",
+      "system": "Glycine",
+      "category": "Receptor (LGIC) subunit",
+      "notes": "Structural subunit; anchoring to gephyrin",
+      "description": "Glycine receptor beta gene expression"
+    },
+    "SLC6A5": {
+      "gene_name": "Solute carrier family 6 member 5 (GlyT2)",
+      "system": "Glycine",
+      "category": "Transporter (reuptake)",
+      "notes": "Glycine transporter 2; presynaptic; hyperekplexia mutations",
+      "description": "Solute carrier family 6 member 5 (GlyT2) gene expression"
+    },
+    "SLC6A9": {
+      "gene_name": "Solute carrier family 6 member 9 (GlyT1)",
+      "system": "Glycine",
+      "category": "Transporter (reuptake)",
+      "notes": "Glycine transporter 1; glial; NMDA co-agonist regulation",
+      "description": "Solute carrier family 6 member 9 (GlyT1) gene expression"
+    },
+    "CNR1": {
+      "gene_name": "Cannabinoid receptor 1",
+      "system": "Cannabinoid",
+      "category": "Receptor (GPCR)",
+      "notes": "Gi-coupled; CB1; most abundant brain GPCR; THC target",
+      "description": "Cannabinoid receptor 1 gene expression"
+    },
+    "CNR2": {
+      "gene_name": "Cannabinoid receptor 2",
+      "system": "Cannabinoid",
+      "category": "Receptor (GPCR)",
+      "notes": "Gi-coupled; CB2; immune cells; some brain expression",
+      "description": "Cannabinoid receptor 2 gene expression"
+    },
+    "DAGLA": {
+      "gene_name": "Diacylglycerol lipase alpha",
+      "system": "Cannabinoid",
+      "category": "Synthesis enzyme",
+      "notes": "Synthesizes 2-AG (main endocannabinoid)",
+      "description": "Diacylglycerol lipase alpha gene expression"
+    },
+    "DAGLB": {
+      "gene_name": "Diacylglycerol lipase beta",
+      "system": "Cannabinoid",
+      "category": "Synthesis enzyme",
+      "notes": "Synthesizes 2-AG",
+      "description": "Diacylglycerol lipase beta gene expression"
+    },
+    "NAPEPLD": {
+      "gene_name": "N-acyl phosphatidylethanolamine phospholipase D",
+      "system": "Cannabinoid",
+      "category": "Synthesis enzyme",
+      "notes": "Synthesizes anandamide",
+      "description": "N-acyl phosphatidylethanolamine phospholipase D gene expression"
+    },
+    "FAAH": {
+      "gene_name": "Fatty acid amide hydrolase",
+      "system": "Cannabinoid",
+      "category": "Degradation enzyme",
+      "notes": "Degrades anandamide; drug target",
+      "description": "Fatty acid amide hydrolase gene expression"
+    },
+    "MGLL": {
+      "gene_name": "Monoglyceride lipase",
+      "system": "Cannabinoid",
+      "category": "Degradation enzyme",
+      "notes": "Degrades 2-AG",
+      "description": "Monoglyceride lipase gene expression"
+    },
+    "ADORA1": {
+      "gene_name": "Adenosine A1 receptor",
+      "system": "Adenosine",
+      "category": "Receptor (GPCR)",
+      "notes": "Gi-coupled; sedation; caffeine antagonist",
+      "description": "Adenosine A1 receptor gene expression"
+    },
+    "ADORA2A": {
+      "gene_name": "Adenosine A2A receptor",
+      "system": "Adenosine",
+      "category": "Receptor (GPCR)",
+      "notes": "Gs-coupled; striatum; caffeine antagonist; istradefylline (Parkinson)",
+      "description": "Adenosine A2A receptor gene expression"
+    },
+    "ADORA2B": {
+      "gene_name": "Adenosine A2B receptor",
+      "system": "Adenosine",
+      "category": "Receptor (GPCR)",
+      "notes": "Gs-coupled; low affinity",
+      "description": "Adenosine A2B receptor gene expression"
+    },
+    "ADORA3": {
+      "gene_name": "Adenosine A3 receptor",
+      "system": "Adenosine",
+      "category": "Receptor (GPCR)",
+      "notes": "Gi-coupled; inflammation",
+      "description": "Adenosine A3 receptor gene expression"
+    },
+    "P2RX1": {
+      "gene_name": "Purinergic receptor P2X 1",
+      "system": "Purinergic",
+      "category": "Receptor (LGIC)",
+      "notes": "ATP-gated cation channel",
+      "description": "Purinergic receptor P2X 1 gene expression"
+    },
+    "P2RX2": {
+      "gene_name": "Purinergic receptor P2X 2",
+      "system": "Purinergic",
+      "category": "Receptor (LGIC)",
+      "notes": "ATP-gated cation channel",
+      "description": "Purinergic receptor P2X 2 gene expression"
+    },
+    "P2RX3": {
+      "gene_name": "Purinergic receptor P2X 3",
+      "system": "Purinergic",
+      "category": "Receptor (LGIC)",
+      "notes": "ATP-gated cation channel; pain signaling",
+      "description": "Purinergic receptor P2X 3 gene expression"
+    },
+    "P2RX4": {
+      "gene_name": "Purinergic receptor P2X 4",
+      "system": "Purinergic",
+      "category": "Receptor (LGIC)",
+      "notes": "ATP-gated cation channel; pain signaling",
+      "description": "Purinergic receptor P2X 4 gene expression"
+    },
+    "P2RX5": {
+      "gene_name": "Purinergic receptor P2X 5",
+      "system": "Purinergic",
+      "category": "Receptor (LGIC)",
+      "notes": "ATP-gated cation channel",
+      "description": "Purinergic receptor P2X 5 gene expression"
+    },
+    "P2RX6": {
+      "gene_name": "Purinergic receptor P2X 6",
+      "system": "Purinergic",
+      "category": "Receptor (LGIC)",
+      "notes": "ATP-gated cation channel",
+      "description": "Purinergic receptor P2X 6 gene expression"
+    },
+    "P2RX7": {
+      "gene_name": "Purinergic receptor P2X 7",
+      "system": "Purinergic",
+      "category": "Receptor (LGIC)",
+      "notes": "ATP-gated cation channel; neuroinflammation/microglia",
+      "description": "Purinergic receptor P2X 7 gene expression"
+    },
+    "P2RY1": {
+      "gene_name": "Purinergic receptor P2Y 1",
+      "system": "Purinergic",
+      "category": "Receptor (GPCR)",
+      "notes": "Gq-coupled",
+      "description": "Purinergic receptor P2Y 1 gene expression"
+    },
+    "P2RY2": {
+      "gene_name": "Purinergic receptor P2Y 2",
+      "system": "Purinergic",
+      "category": "Receptor (GPCR)",
+      "notes": "Gq-coupled",
+      "description": "Purinergic receptor P2Y 2 gene expression"
+    },
+    "P2RY4": {
+      "gene_name": "Purinergic receptor P2Y 4",
+      "system": "Purinergic",
+      "category": "Receptor (GPCR)",
+      "notes": "Gq-coupled",
+      "description": "Purinergic receptor P2Y 4 gene expression"
+    },
+    "P2RY6": {
+      "gene_name": "Purinergic receptor P2Y 6",
+      "system": "Purinergic",
+      "category": "Receptor (GPCR)",
+      "notes": "Gq-coupled",
+      "description": "Purinergic receptor P2Y 6 gene expression"
+    },
+    "P2RY11": {
+      "gene_name": "Purinergic receptor P2Y 11",
+      "system": "Purinergic",
+      "category": "Receptor (GPCR)",
+      "notes": "Gs/Gq-coupled",
+      "description": "Purinergic receptor P2Y 11 gene expression"
+    },
+    "P2RY12": {
+      "gene_name": "Purinergic receptor P2Y 12",
+      "system": "Purinergic",
+      "category": "Receptor (GPCR)",
+      "notes": "Gi-coupled; microglia chemotaxis",
+      "description": "Purinergic receptor P2Y 12 gene expression"
+    },
+    "P2RY13": {
+      "gene_name": "Purinergic receptor P2Y 13",
+      "system": "Purinergic",
+      "category": "Receptor (GPCR)",
+      "notes": "Gi-coupled",
+      "description": "Purinergic receptor P2Y 13 gene expression"
+    },
+    "P2RY14": {
+      "gene_name": "Purinergic receptor P2Y 14",
+      "system": "Purinergic",
+      "category": "Receptor (GPCR)",
+      "notes": "Gi-coupled",
+      "description": "Purinergic receptor P2Y 14 gene expression"
+    },
+    "TACR1": {
+      "gene_name": "Tachykinin receptor 1 (NK1R)",
+      "system": "Neuropeptide",
+      "category": "Receptor (GPCR)",
+      "notes": "Substance P receptor; pain, emesis; aprepitant target",
+      "description": "Tachykinin receptor 1 (NK1R) gene expression"
+    },
+    "TACR2": {
+      "gene_name": "Tachykinin receptor 2 (NK2R)",
+      "system": "Neuropeptide",
+      "category": "Receptor (GPCR)",
+      "notes": "Neurokinin A receptor",
+      "description": "Tachykinin receptor 2 (NK2R) gene expression"
+    },
+    "TACR3": {
+      "gene_name": "Tachykinin receptor 3 (NK3R)",
+      "system": "Neuropeptide",
+      "category": "Receptor (GPCR)",
+      "notes": "Neurokinin B receptor; reproduction",
+      "description": "Tachykinin receptor 3 (NK3R) gene expression"
+    },
+    "HCRTR1": {
+      "gene_name": "Hypocretin receptor 1 (OX1R)",
+      "system": "Neuropeptide",
+      "category": "Receptor (GPCR)",
+      "notes": "Orexin-1 receptor; wakefulness",
+      "description": "Hypocretin receptor 1 (OX1R) gene expression"
+    },
+    "HCRTR2": {
+      "gene_name": "Hypocretin receptor 2 (OX2R)",
+      "system": "Neuropeptide",
+      "category": "Receptor (GPCR)",
+      "notes": "Orexin-2 receptor; suvorexant/lemborexant target",
+      "description": "Hypocretin receptor 2 (OX2R) gene expression"
+    },
+    "OXTR": {
+      "gene_name": "Oxytocin receptor",
+      "system": "Neuropeptide",
+      "category": "Receptor (GPCR)",
+      "notes": "Social bonding, trust; Gq-coupled",
+      "description": "Oxytocin receptor gene expression"
+    },
+    "AVPR1A": {
+      "gene_name": "Arginine vasopressin receptor 1A",
+      "system": "Neuropeptide",
+      "category": "Receptor (GPCR)",
+      "notes": "V1a; social behavior, aggression",
+      "description": "Arginine vasopressin receptor 1A gene expression"
+    },
+    "AVPR1B": {
+      "gene_name": "Arginine vasopressin receptor 1B",
+      "system": "Neuropeptide",
+      "category": "Receptor (GPCR)",
+      "notes": "V1b; ACTH release; stress",
+      "description": "Arginine vasopressin receptor 1B gene expression"
+    },
+    "AVPR2": {
+      "gene_name": "Arginine vasopressin receptor 2",
+      "system": "Neuropeptide",
+      "category": "Receptor (GPCR)",
+      "notes": "V2; renal water reabsorption",
+      "description": "Arginine vasopressin receptor 2 gene expression"
+    },
+    "CRHR1": {
+      "gene_name": "Corticotropin releasing hormone receptor 1",
+      "system": "Neuropeptide",
+      "category": "Receptor (GPCR)",
+      "notes": "HPA axis; stress; anxiety",
+      "description": "Corticotropin releasing hormone receptor 1 gene expression"
+    },
+    "CRHR2": {
+      "gene_name": "Corticotropin releasing hormone receptor 2",
+      "system": "Neuropeptide",
+      "category": "Receptor (GPCR)",
+      "notes": "Stress recovery",
+      "description": "Corticotropin releasing hormone receptor 2 gene expression"
+    },
+    "NPY1R": {
+      "gene_name": "Neuropeptide Y receptor Y1",
+      "system": "Neuropeptide",
+      "category": "Receptor (GPCR)",
+      "notes": "Gi-coupled; feeding, anxiety",
+      "description": "Neuropeptide Y receptor Y1 gene expression"
+    },
+    "NPY2R": {
+      "gene_name": "Neuropeptide Y receptor Y2",
+      "system": "Neuropeptide",
+      "category": "Receptor (GPCR)",
+      "notes": "Gi-coupled; presynaptic autoreceptor",
+      "description": "Neuropeptide Y receptor Y2 gene expression"
+    },
+    "NPY4R": {
+      "gene_name": "Neuropeptide Y receptor Y4",
+      "system": "Neuropeptide",
+      "category": "Receptor (GPCR)",
+      "notes": "Pancreatic polypeptide preferred",
+      "description": "Neuropeptide Y receptor Y4 gene expression"
+    },
+    "NPY5R": {
+      "gene_name": "Neuropeptide Y receptor Y5",
+      "system": "Neuropeptide",
+      "category": "Receptor (GPCR)",
+      "notes": "Gi-coupled; feeding",
+      "description": "Neuropeptide Y receptor Y5 gene expression"
+    },
+    "CCKAR": {
+      "gene_name": "Cholecystokinin A receptor",
+      "system": "Neuropeptide",
+      "category": "Receptor (GPCR)",
+      "notes": "CCK-A; satiety; Gq-coupled",
+      "description": "Cholecystokinin A receptor gene expression"
+    },
+    "CCKBR": {
+      "gene_name": "Cholecystokinin B receptor",
+      "system": "Neuropeptide",
+      "category": "Receptor (GPCR)",
+      "notes": "CCK-B/gastrin; anxiety, panic",
+      "description": "Cholecystokinin B receptor gene expression"
+    },
+    "NTSR1": {
+      "gene_name": "Neurotensin receptor 1",
+      "system": "Neuropeptide",
+      "category": "Receptor (GPCR)",
+      "notes": "Gq-coupled; dopamine modulation",
+      "description": "Neurotensin receptor 1 gene expression"
+    },
+    "NTSR2": {
+      "gene_name": "Neurotensin receptor 2",
+      "system": "Neuropeptide",
+      "category": "Receptor (GPCR)",
+      "notes": "Gq-coupled; pain",
+      "description": "Neurotensin receptor 2 gene expression"
+    },
+    "SSTR1": {
+      "gene_name": "Somatostatin receptor 1",
+      "system": "Neuropeptide",
+      "category": "Receptor (GPCR)",
+      "notes": "Gi-coupled; SST1; neuroendocrine",
+      "description": "Somatostatin receptor 1 gene expression"
+    },
+    "SSTR2": {
+      "gene_name": "Somatostatin receptor 2",
+      "system": "Neuropeptide",
+      "category": "Receptor (GPCR)",
+      "notes": "Gi-coupled; SST2; neuroendocrine",
+      "description": "Somatostatin receptor 2 gene expression"
+    },
+    "SSTR3": {
+      "gene_name": "Somatostatin receptor 3",
+      "system": "Neuropeptide",
+      "category": "Receptor (GPCR)",
+      "notes": "Gi-coupled; SST3; neuroendocrine",
+      "description": "Somatostatin receptor 3 gene expression"
+    },
+    "SSTR4": {
+      "gene_name": "Somatostatin receptor 4",
+      "system": "Neuropeptide",
+      "category": "Receptor (GPCR)",
+      "notes": "Gi-coupled; SST4; neuroendocrine",
+      "description": "Somatostatin receptor 4 gene expression"
+    },
+    "SSTR5": {
+      "gene_name": "Somatostatin receptor 5",
+      "system": "Neuropeptide",
+      "category": "Receptor (GPCR)",
+      "notes": "Gi-coupled; SST5; neuroendocrine",
+      "description": "Somatostatin receptor 5 gene expression"
+    },
+    "GALR1": {
+      "gene_name": "Galanin receptor 1",
+      "system": "Neuropeptide",
+      "category": "Receptor (GPCR)",
+      "notes": "Gi-coupled; mood, cognition",
+      "description": "Galanin receptor 1 gene expression"
+    },
+    "GALR2": {
+      "gene_name": "Galanin receptor 2",
+      "system": "Neuropeptide",
+      "category": "Receptor (GPCR)",
+      "notes": "Gq-coupled; neurogenesis",
+      "description": "Galanin receptor 2 gene expression"
+    },
+    "GALR3": {
+      "gene_name": "Galanin receptor 3",
+      "system": "Neuropeptide",
+      "category": "Receptor (GPCR)",
+      "notes": "Gi-coupled",
+      "description": "Galanin receptor 3 gene expression"
+    },
+    "MC3R": {
+      "gene_name": "Melanocortin 3 receptor",
+      "system": "Neuropeptide",
+      "category": "Receptor (GPCR)",
+      "notes": "Energy homeostasis",
+      "description": "Melanocortin 3 receptor gene expression"
+    },
+    "MC4R": {
+      "gene_name": "Melanocortin 4 receptor",
+      "system": "Neuropeptide",
+      "category": "Receptor (GPCR)",
+      "notes": "Appetite/weight; setmelanotide target",
+      "description": "Melanocortin 4 receptor gene expression"
+    },
+    "NTRK1": {
+      "gene_name": "Neurotrophic receptor tyrosine kinase 1 (TrkA)",
+      "system": "Neurotrophin",
+      "category": "Receptor (RTK)",
+      "notes": "NGF receptor",
+      "description": "Neurotrophic receptor tyrosine kinase 1 (TrkA) gene expression"
+    },
+    "NTRK2": {
+      "gene_name": "Neurotrophic receptor tyrosine kinase 2 (TrkB)",
+      "system": "Neurotrophin",
+      "category": "Receptor (RTK)",
+      "notes": "BDNF/NT-4 receptor; 7,8-DHF target; plasticity",
+      "description": "Neurotrophic receptor tyrosine kinase 2 (TrkB) gene expression"
+    },
+    "NTRK3": {
+      "gene_name": "Neurotrophic receptor tyrosine kinase 3 (TrkC)",
+      "system": "Neurotrophin",
+      "category": "Receptor (RTK)",
+      "notes": "NT-3 receptor",
+      "description": "Neurotrophic receptor tyrosine kinase 3 (TrkC) gene expression"
+    },
+    "NGFR": {
+      "gene_name": "Nerve growth factor receptor (p75NTR)",
+      "system": "Neurotrophin",
+      "category": "Receptor (TNF-R family)",
+      "notes": "Pan-neurotrophin receptor; apoptosis/survival",
+      "description": "Nerve growth factor receptor (p75NTR) gene expression"
+    },
+    "BDNF": {
+      "gene_name": "Brain-derived neurotrophic factor",
+      "system": "Neurotrophin",
+      "category": "Neuropeptide/Growth factor",
+      "notes": "TrkB ligand; plasticity, LTP, antidepressant mechanism",
+      "description": "Brain-derived neurotrophic factor gene expression"
+    },
+    "NGF": {
+      "gene_name": "Nerve growth factor",
+      "system": "Neurotrophin",
+      "category": "Neuropeptide/Growth factor",
+      "notes": "TrkA ligand; basal forebrain cholinergic neurons",
+      "description": "Nerve growth factor gene expression"
+    },
+    "SLC18A1": {
+      "gene_name": "Solute carrier family 18 member 1 (VMAT1)",
+      "system": "Monoamine (general)",
+      "category": "Transporter (vesicular)",
+      "notes": "Vesicular monoamine transporter 1; peripheral",
+      "description": "Solute carrier family 18 member 1 (VMAT1) gene expression"
+    },
+    "SLC18A2": {
+      "gene_name": "Solute carrier family 18 member 2 (VMAT2)",
+      "system": "Monoamine (general)",
+      "category": "Transporter (vesicular)",
+      "notes": "Vesicular monoamine transporter 2; brain; reserpine/tetrabenazine target",
+      "description": "Solute carrier family 18 member 2 (VMAT2) gene expression"
+    },
+    "TAAR1": {
+      "gene_name": "Trace amine associated receptor 1",
+      "system": "Trace amine",
+      "category": "Receptor (GPCR)",
+      "notes": "Gs-coupled; modulates DA/5-HT; amphetamine target; ulotaront (schizophrenia)",
+      "description": "Trace amine associated receptor 1 gene expression"
+    },
+    "TAAR2": {
+      "gene_name": "Trace amine associated receptor 2",
+      "system": "Trace amine",
+      "category": "Receptor (GPCR)",
+      "notes": "Olfactory",
+      "description": "Trace amine associated receptor 2 gene expression"
+    },
+    "TAAR5": {
+      "gene_name": "Trace amine associated receptor 5",
+      "system": "Trace amine",
+      "category": "Receptor (GPCR)",
+      "notes": "Olfactory; trimethylamine detection",
+      "description": "Trace amine associated receptor 5 gene expression"
+    },
+    "SIGMAR1": {
+      "gene_name": "Sigma non-opioid intracellular receptor 1",
+      "system": "Sigma",
+      "category": "Receptor (chaperone)",
+      "notes": "ER chaperone; modulates NMDA, IP3R; fluvoxamine/dextromethorphan target",
+      "description": "Sigma non-opioid intracellular receptor 1 gene expression"
+    },
+    "TMEM97": {
+      "gene_name": "Transmembrane protein 97 (Sigma-2)",
+      "system": "Sigma",
+      "category": "Receptor",
+      "notes": "Sigma-2 receptor; cell proliferation; less characterized",
+      "description": "Transmembrane protein 97 (Sigma-2) gene expression"
+    },
+    "MTNR1A": {
+      "gene_name": "Melatonin receptor 1A",
+      "system": "Melatonin",
+      "category": "Receptor (GPCR)",
+      "notes": "MT1; Gi-coupled; circadian; ramelteon/tasimelteon target",
+      "description": "Melatonin receptor 1A gene expression"
+    },
+    "MTNR1B": {
+      "gene_name": "Melatonin receptor 1B",
+      "system": "Melatonin",
+      "category": "Receptor (GPCR)",
+      "notes": "MT2; Gi-coupled; circadian; glucose metabolism",
+      "description": "Melatonin receptor 1B gene expression"
+    },
+    "AANAT": {
+      "gene_name": "Aralkylamine N-acetyltransferase",
+      "system": "Melatonin",
+      "category": "Synthesis enzyme",
+      "notes": "Rate-limiting for melatonin synthesis; serotonin \u2192 N-acetylserotonin",
+      "description": "Aralkylamine N-acetyltransferase gene expression"
+    },
+    "ASMT": {
+      "gene_name": "Acetylserotonin O-methyltransferase (HIOMT)",
+      "system": "Melatonin",
+      "category": "Synthesis enzyme",
+      "notes": "N-acetylserotonin \u2192 melatonin; final step",
+      "description": "Acetylserotonin O-methyltransferase (HIOMT) gene expression"
+    },
+    "CACNA1A": {
+      "gene_name": "Calcium voltage-gated channel subunit alpha1 A (P/Q-type)",
+      "system": "Ion channel",
+      "category": "Voltage-gated Ca2+",
+      "notes": "P/Q-type; presynaptic NT release; migraine",
+      "description": "Calcium voltage-gated channel subunit alpha1 A (P/Q-type) gene expression"
+    },
+    "CACNA1B": {
+      "gene_name": "Calcium voltage-gated channel subunit alpha1 B (N-type)",
+      "system": "Ion channel",
+      "category": "Voltage-gated Ca2+",
+      "notes": "N-type; presynaptic NT release; pain (ziconotide)",
+      "description": "Calcium voltage-gated channel subunit alpha1 B (N-type) gene expression"
+    },
+    "CACNA1C": {
+      "gene_name": "Calcium voltage-gated channel subunit alpha1 C (L-type)",
+      "system": "Ion channel",
+      "category": "Voltage-gated Ca2+",
+      "notes": "L-type Cav1.2; cardiac/neuronal; psychiatric GWAS",
+      "description": "Calcium voltage-gated channel subunit alpha1 C (L-type) gene expression"
+    },
+    "CACNA1D": {
+      "gene_name": "Calcium voltage-gated channel subunit alpha1 D (L-type)",
+      "system": "Ion channel",
+      "category": "Voltage-gated Ca2+",
+      "notes": "L-type Cav1.3; auditory, cardiac pacemaker",
+      "description": "Calcium voltage-gated channel subunit alpha1 D (L-type) gene expression"
+    },
+    "CACNA1E": {
+      "gene_name": "Calcium voltage-gated channel subunit alpha1 E (R-type)",
+      "system": "Ion channel",
+      "category": "Voltage-gated Ca2+",
+      "notes": "R-type; dendritic integration",
+      "description": "Calcium voltage-gated channel subunit alpha1 E (R-type) gene expression"
+    },
+    "CACNA2D1": {
+      "gene_name": "Calcium voltage-gated channel auxiliary subunit alpha2delta 1",
+      "system": "Ion channel",
+      "category": "Voltage-gated Ca2+ auxiliary",
+      "notes": "Gabapentin/pregabalin binding site; pain, anxiety",
+      "description": "Calcium voltage-gated channel auxiliary subunit alpha2delta 1 gene expression"
+    },
+    "CACNA2D2": {
+      "gene_name": "Calcium voltage-gated channel auxiliary subunit alpha2delta 2",
+      "system": "Ion channel",
+      "category": "Voltage-gated Ca2+ auxiliary",
+      "notes": "Cerebellar; epilepsy",
+      "description": "Calcium voltage-gated channel auxiliary subunit alpha2delta 2 gene expression"
+    },
+    "SCN1A": {
+      "gene_name": "Sodium voltage-gated channel alpha subunit 1 (Nav1.1)",
+      "system": "Ion channel",
+      "category": "Voltage-gated Na+",
+      "notes": "GABAergic interneurons; Dravet syndrome; epilepsy",
+      "description": "Sodium voltage-gated channel alpha subunit 1 (Nav1.1) gene expression"
+    },
+    "SCN2A": {
+      "gene_name": "Sodium voltage-gated channel alpha subunit 2 (Nav1.2)",
+      "system": "Ion channel",
+      "category": "Voltage-gated Na+",
+      "notes": "Axon initial segment; epilepsy",
+      "description": "Sodium voltage-gated channel alpha subunit 2 (Nav1.2) gene expression"
+    },
+    "SCN3A": {
+      "gene_name": "Sodium voltage-gated channel alpha subunit 3 (Nav1.3)",
+      "system": "Ion channel",
+      "category": "Voltage-gated Na+",
+      "notes": "Embryonic; re-expressed after injury",
+      "description": "Sodium voltage-gated channel alpha subunit 3 (Nav1.3) gene expression"
+    },
+    "SCN8A": {
+      "gene_name": "Sodium voltage-gated channel alpha subunit 8 (Nav1.6)",
+      "system": "Ion channel",
+      "category": "Voltage-gated Na+",
+      "notes": "Nodes of Ranvier; epilepsy",
+      "description": "Sodium voltage-gated channel alpha subunit 8 (Nav1.6) gene expression"
+    },
+    "SCN9A": {
+      "gene_name": "Sodium voltage-gated channel alpha subunit 9 (Nav1.7)",
+      "system": "Ion channel",
+      "category": "Voltage-gated Na+",
+      "notes": "Pain nociceptors; loss=insensitivity to pain",
+      "description": "Sodium voltage-gated channel alpha subunit 9 (Nav1.7) gene expression"
+    },
+    "KCNA1": {
+      "gene_name": "Potassium voltage-gated channel subfamily A member 1 (Kv1.1)",
+      "system": "Ion channel",
+      "category": "Voltage-gated K+",
+      "notes": "Episodic ataxia type 1",
+      "description": "Potassium voltage-gated channel subfamily A member 1 (Kv1.1) gene expression"
+    },
+    "KCNA2": {
+      "gene_name": "Potassium voltage-gated channel subfamily A member 2 (Kv1.2)",
+      "system": "Ion channel",
+      "category": "Voltage-gated K+",
+      "notes": "Axonal repolarization",
+      "description": "Potassium voltage-gated channel subfamily A member 2 (Kv1.2) gene expression"
+    },
+    "KCNQ2": {
+      "gene_name": "Potassium voltage-gated channel subfamily Q member 2",
+      "system": "Ion channel",
+      "category": "Voltage-gated K+",
+      "notes": "M-current; neonatal epilepsy; retigabine target",
+      "description": "Potassium voltage-gated channel subfamily Q member 2 gene expression"
+    },
+    "KCNQ3": {
+      "gene_name": "Potassium voltage-gated channel subfamily Q member 3",
+      "system": "Ion channel",
+      "category": "Voltage-gated K+",
+      "notes": "M-current; forms heteromer with KCNQ2",
+      "description": "Potassium voltage-gated channel subfamily Q member 3 gene expression"
+    },
+    "HCN1": {
+      "gene_name": "Hyperpolarization activated cyclic nucleotide gated potassium channel 1",
+      "system": "Ion channel",
+      "category": "HCN",
+      "notes": "Ih current; neuronal pacemaker; propofol sensitivity",
+      "description": "Hyperpolarization activated cyclic nucleotide gated potassium channel 1 gene expression"
+    },
+    "HCN2": {
+      "gene_name": "Hyperpolarization activated cyclic nucleotide gated potassium channel 2",
+      "system": "Ion channel",
+      "category": "HCN",
+      "notes": "Ih current; thalamocortical oscillations",
+      "description": "Hyperpolarization activated cyclic nucleotide gated potassium channel 2 gene expression"
+    },
+    "HCN4": {
+      "gene_name": "Hyperpolarization activated cyclic nucleotide gated potassium channel 4",
+      "system": "Ion channel",
+      "category": "HCN",
+      "notes": "Cardiac pacemaker; some brain expression",
+      "description": "Hyperpolarization activated cyclic nucleotide gated potassium channel 4 gene expression"
+    },
+    "NISCH": {
+      "gene_name": "Nischarin (I1 imidazoline receptor)",
+      "system": "Imidazoline",
+      "category": "Receptor",
+      "notes": "I1 receptor; clonidine/moxonidine; agmatine",
+      "description": "Nischarin (I1 imidazoline receptor) gene expression"
+    },
+    "PPP1R1B": {
+      "gene_name": "Protein phosphatase 1 regulatory inhibitor subunit 1B",
+      "system": "Dopamine",
+      "category": "Signaling",
+      "notes": "Actually PPP1R1B; dopamine/cAMP signaling integrator in MSNs",
+      "description": "Protein phosphatase 1 regulatory inhibitor subunit 1B gene expression"
+    },
+    "ALDH2": {
+      "gene_name": "Aldehyde dehydrogenase 2",
+      "system": "Monoamine (general)",
+      "category": "Degradation enzyme",
+      "notes": "Metabolizes DOPAL (toxic DA metabolite) and acetaldehyde",
+      "description": "Aldehyde dehydrogenase 2 gene expression"
+    },
+    "NOS1": {
+      "gene_name": "Nitric oxide synthase 1 (neuronal nNOS)",
+      "system": "Nitric oxide",
+      "category": "Synthesis enzyme",
+      "notes": "Neuronal NO production; NMDA-coupled; retrograde signaling",
+      "description": "Nitric oxide synthase 1 (neuronal nNOS) gene expression"
+    },
+    "TRPV1": {
+      "gene_name": "Transient receptor potential cation channel subfamily V member 1",
+      "system": "Cannabinoid/Pain",
+      "category": "Receptor (ion channel)",
+      "notes": "Vanilloid receptor; capsaicin; anandamide target",
+      "description": "Transient receptor potential cation channel subfamily V member 1 gene expression"
+    }
+  }
+}

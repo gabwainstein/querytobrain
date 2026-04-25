@@ -1,0 +1,263 @@
+gene_symbol,gene_name,system,category,notes
+HTR1A,5-hydroxytryptamine receptor 1A,Serotonin,Receptor (GPCR),"Gi-coupled; anxiety, depression target"
+HTR1B,5-hydroxytryptamine receptor 1B,Serotonin,Receptor (GPCR),Gi-coupled; autoreceptor
+HTR1D,5-hydroxytryptamine receptor 1D,Serotonin,Receptor (GPCR),Gi-coupled; migraine target
+HTR1E,5-hydroxytryptamine receptor 1E,Serotonin,Receptor (GPCR),Gi-coupled
+HTR1F,5-hydroxytryptamine receptor 1F,Serotonin,Receptor (GPCR),Gi-coupled; migraine (lasmiditan)
+HTR2A,5-hydroxytryptamine receptor 2A,Serotonin,Receptor (GPCR),"Gq-coupled; psychedelic target, antipsychotic target"
+HTR2B,5-hydroxytryptamine receptor 2B,Serotonin,Receptor (GPCR),Gq-coupled; valvulopathy risk
+HTR2C,5-hydroxytryptamine receptor 2C,Serotonin,Receptor (GPCR),"Gq-coupled; appetite, mood"
+HTR3A,5-hydroxytryptamine receptor 3A,Serotonin,Receptor (LGIC),Cation channel subunit; nausea
+HTR3B,5-hydroxytryptamine receptor 3B,Serotonin,Receptor (LGIC),Cation channel subunit
+HTR3C,5-hydroxytryptamine receptor 3C,Serotonin,Receptor (LGIC),Cation channel subunit
+HTR3D,5-hydroxytryptamine receptor 3D,Serotonin,Receptor (LGIC),Cation channel subunit
+HTR3E,5-hydroxytryptamine receptor 3E,Serotonin,Receptor (LGIC),Cation channel subunit
+HTR4,5-hydroxytryptamine receptor 4,Serotonin,Receptor (GPCR),"Gs-coupled; cognition, GI motility"
+HTR5A,5-hydroxytryptamine receptor 5A,Serotonin,Receptor (GPCR),Gi-coupled; poorly characterized
+HTR6,5-hydroxytryptamine receptor 6,Serotonin,Receptor (GPCR),Gs-coupled; cognition target
+HTR7,5-hydroxytryptamine receptor 7,Serotonin,Receptor (GPCR),"Gs-coupled; circadian rhythm, mood"
+SLC6A4,Solute carrier family 6 member 4 (SERT),Serotonin,Transporter (reuptake),Serotonin transporter; SSRI target
+TPH1,Tryptophan hydroxylase 1,Serotonin,Synthesis enzyme,Peripheral serotonin synthesis
+TPH2,Tryptophan hydroxylase 2,Serotonin,Synthesis enzyme,Brain-specific serotonin synthesis; rate-limiting
+DDC,DOPA decarboxylase,Serotonin/Dopamine,Synthesis enzyme,Also called AADC; converts 5-HTP→5-HT and L-DOPA→DA
+MAOA,Monoamine oxidase A,Serotonin/Norepinephrine,Degradation enzyme,"Preferentially degrades 5-HT, NE; MAO-I target"
+MAOB,Monoamine oxidase B,Dopamine,Degradation enzyme,"Preferentially degrades DA, PEA; selegiline target"
+DRD1,Dopamine receptor D1,Dopamine,Receptor (GPCR),Gs-coupled; D1-like family
+DRD2,Dopamine receptor D2,Dopamine,Receptor (GPCR),Gi-coupled; D2-like; antipsychotic target
+DRD3,Dopamine receptor D3,Dopamine,Receptor (GPCR),Gi-coupled; D2-like family
+DRD4,Dopamine receptor D4,Dopamine,Receptor (GPCR),Gi-coupled; D2-like; ADHD association
+DRD5,Dopamine receptor D5,Dopamine,Receptor (GPCR),Gs-coupled; D1-like family
+SLC6A3,Solute carrier family 6 member 3 (DAT),Dopamine,Transporter (reuptake),Dopamine transporter; cocaine/amphetamine target
+TH,Tyrosine hydroxylase,Dopamine/Norepinephrine,Synthesis enzyme,Rate-limiting for all catecholamines
+COMT,Catechol-O-methyltransferase,Dopamine/Norepinephrine,Degradation enzyme,Degrades DA and NE; Val158Met polymorphism; prefrontal DA regulation
+ADRA1A,Adrenoceptor alpha 1A,Norepinephrine,Receptor (GPCR),Gq-coupled; vasoconstriction
+ADRA1B,Adrenoceptor alpha 1B,Norepinephrine,Receptor (GPCR),Gq-coupled
+ADRA1D,Adrenoceptor alpha 1D,Norepinephrine,Receptor (GPCR),Gq-coupled
+ADRA2A,Adrenoceptor alpha 2A,Norepinephrine,Receptor (GPCR),Gi-coupled; autoreceptor; clonidine/guanfacine target
+ADRA2B,Adrenoceptor alpha 2B,Norepinephrine,Receptor (GPCR),Gi-coupled
+ADRA2C,Adrenoceptor alpha 2C,Norepinephrine,Receptor (GPCR),Gi-coupled; LC presynaptic
+ADRB1,Adrenoceptor beta 1,Norepinephrine,Receptor (GPCR),Gs-coupled; cardiac; beta-blocker target
+ADRB2,Adrenoceptor beta 2,Norepinephrine,Receptor (GPCR),Gs-coupled; bronchodilation
+ADRB3,Adrenoceptor beta 3,Norepinephrine,Receptor (GPCR),Gs-coupled; adipose tissue
+SLC6A2,Solute carrier family 6 member 2 (NET),Norepinephrine,Transporter (reuptake),Norepinephrine transporter; SNRI/atomoxetine target
+DBH,Dopamine beta-hydroxylase,Norepinephrine,Synthesis enzyme,Converts dopamine → norepinephrine
+PNMT,Phenylethanolamine N-methyltransferase,Epinephrine,Synthesis enzyme,Converts NE → epinephrine; adrenal medulla
+GABRA1,GABA-A receptor subunit alpha 1,GABA,Receptor (LGIC) subunit,GABA-A alpha-1; benzodiazepine/barbiturate site
+GABRA2,GABA-A receptor subunit alpha 2,GABA,Receptor (LGIC) subunit,GABA-A alpha-2; benzodiazepine/barbiturate site
+GABRA3,GABA-A receptor subunit alpha 3,GABA,Receptor (LGIC) subunit,GABA-A alpha-3; benzodiazepine/barbiturate site
+GABRA4,GABA-A receptor subunit alpha 4,GABA,Receptor (LGIC) subunit,GABA-A alpha-4; benzodiazepine/barbiturate site
+GABRA5,GABA-A receptor subunit alpha 5,GABA,Receptor (LGIC) subunit,GABA-A alpha-5; benzodiazepine/barbiturate site
+GABRA6,GABA-A receptor subunit alpha 6,GABA,Receptor (LGIC) subunit,GABA-A alpha-6; benzodiazepine/barbiturate site
+GABRB1,GABA-A receptor subunit beta 1,GABA,Receptor (LGIC) subunit,GABA-A beta-1
+GABRB2,GABA-A receptor subunit beta 2,GABA,Receptor (LGIC) subunit,GABA-A beta-2
+GABRB3,GABA-A receptor subunit beta 3,GABA,Receptor (LGIC) subunit,GABA-A beta-3
+GABRG1,GABA-A receptor subunit gamma 1,GABA,Receptor (LGIC) subunit,GABA-A gamma-1; gamma-2 required for BZD binding
+GABRG2,GABA-A receptor subunit gamma 2,GABA,Receptor (LGIC) subunit,GABA-A gamma-2; gamma-2 required for BZD binding
+GABRG3,GABA-A receptor subunit gamma 3,GABA,Receptor (LGIC) subunit,GABA-A gamma-3; gamma-2 required for BZD binding
+GABRD,GABA-A receptor subunit delta,GABA,Receptor (LGIC) subunit,Extrasynaptic tonic inhibition; neurosteroid target; ethanol high-affinity
+GABRE,GABA-A receptor subunit epsilon,GABA,Receptor (LGIC) subunit,Constitutively active
+GABRP,GABA-A receptor subunit pi,GABA,Receptor (LGIC) subunit,Expressed in uterus and some brain regions
+GABRQ,GABA-A receptor subunit theta,GABA,Receptor (LGIC) subunit,Limited expression
+GABRR1,GABA-A receptor subunit rho 1,GABA,Receptor (LGIC) subunit,Former GABA-C receptor rho-1; retina
+GABRR2,GABA-A receptor subunit rho 2,GABA,Receptor (LGIC) subunit,Former GABA-C receptor rho-2; retina
+GABRR3,GABA-A receptor subunit rho 3,GABA,Receptor (LGIC) subunit,Former GABA-C receptor rho-3; retina
+GABBR1,GABA-B receptor subunit 1,GABA,Receptor (GPCR),Gi-coupled; forms heterodimer with GABBR2; baclofen target
+GABBR2,GABA-B receptor subunit 2,GABA,Receptor (GPCR),Gi-coupled; obligate heterodimer with GABBR1
+SLC6A1,Solute carrier family 6 member 1 (GAT1),GABA,Transporter (reuptake),GABA transporter 1; tiagabine target
+SLC6A11,Solute carrier family 6 member 11 (GAT3),GABA,Transporter (reuptake),GABA transporter 3; astrocytic
+SLC6A13,Solute carrier family 6 member 13 (GAT2),GABA,Transporter (reuptake),GABA transporter 2; also betaine transporter
+SLC32A1,Solute carrier family 32 member 1 (VGAT),GABA/Glycine,Transporter (vesicular),Vesicular inhibitory amino acid transporter; loads GABA+glycine into vesicles
+GAD1,Glutamate decarboxylase 1 (GAD67),GABA,Synthesis enzyme,Converts glutamate → GABA; constitutive; 67 kDa
+GAD2,Glutamate decarboxylase 2 (GAD65),GABA,Synthesis enzyme,Converts glutamate → GABA; synaptic vesicle-associated; 65 kDa
+ABAT,4-aminobutyrate aminotransferase,GABA,Degradation enzyme,GABA transaminase; vigabatrin target
+GRIA1,Glutamate ionotropic AMPA receptor subunit 1,Glutamate,Receptor (LGIC) subunit,AMPA GluA1; fast excitatory transmission; racetam/ampakine target
+GRIA2,Glutamate ionotropic AMPA receptor subunit 2,Glutamate,Receptor (LGIC) subunit,AMPA GluA2; fast excitatory transmission; racetam/ampakine target
+GRIA3,Glutamate ionotropic AMPA receptor subunit 3,Glutamate,Receptor (LGIC) subunit,AMPA GluA3; fast excitatory transmission; racetam/ampakine target
+GRIA4,Glutamate ionotropic AMPA receptor subunit 4,Glutamate,Receptor (LGIC) subunit,AMPA GluA4; fast excitatory transmission; racetam/ampakine target
+GRIK1,Glutamate ionotropic kainate receptor subunit 1,Glutamate,Receptor (LGIC) subunit,Kainate GluK1
+GRIK2,Glutamate ionotropic kainate receptor subunit 2,Glutamate,Receptor (LGIC) subunit,Kainate GluK2
+GRIK3,Glutamate ionotropic kainate receptor subunit 3,Glutamate,Receptor (LGIC) subunit,Kainate GluK3
+GRIK4,Glutamate ionotropic kainate receptor subunit 4,Glutamate,Receptor (LGIC) subunit,Kainate GluK4
+GRIK5,Glutamate ionotropic kainate receptor subunit 5,Glutamate,Receptor (LGIC) subunit,Kainate GluK5
+GRIN1,Glutamate ionotropic NMDA receptor subunit 1,Glutamate,Receptor (LGIC) subunit,Obligate subunit; glycine-binding; ketamine/memantine site
+GRIN2A,Glutamate ionotropic NMDA receptor subunit 2A,Glutamate,Receptor (LGIC) subunit,GluN2A; glutamate-binding
+GRIN2B,Glutamate ionotropic NMDA receptor subunit 2B,Glutamate,Receptor (LGIC) subunit,GluN2B; glutamate-binding; ifenprodil site
+GRIN2C,Glutamate ionotropic NMDA receptor subunit 2C,Glutamate,Receptor (LGIC) subunit,GluN2C; cerebellum-enriched
+GRIN2D,Glutamate ionotropic NMDA receptor subunit 2D,Glutamate,Receptor (LGIC) subunit,GluN2D; diencephalon/brainstem
+GRIN3A,Glutamate ionotropic NMDA receptor subunit 3A,Glutamate,Receptor (LGIC) subunit,GluN3A; glycine-binding; modulatory
+GRIN3B,Glutamate ionotropic NMDA receptor subunit 3B,Glutamate,Receptor (LGIC) subunit,GluN3B; glycine-binding
+GRM1,Glutamate metabotropic receptor 1,Glutamate,Receptor (GPCR),Group I; Gq-coupled; postsynaptic
+GRM2,Glutamate metabotropic receptor 2,Glutamate,Receptor (GPCR),Group II; Gi-coupled; presynaptic autoreceptor
+GRM3,Glutamate metabotropic receptor 3,Glutamate,Receptor (GPCR),Group II; Gi-coupled; glial expression
+GRM4,Glutamate metabotropic receptor 4,Glutamate,Receptor (GPCR),Group III; Gi-coupled
+GRM5,Glutamate metabotropic receptor 5,Glutamate,Receptor (GPCR),Group I; Gq-coupled; postsynaptic
+GRM6,Glutamate metabotropic receptor 6,Glutamate,Receptor (GPCR),Group III; retina ON-bipolar cells
+GRM7,Glutamate metabotropic receptor 7,Glutamate,Receptor (GPCR),Group III; Gi-coupled; presynaptic
+GRM8,Glutamate metabotropic receptor 8,Glutamate,Receptor (GPCR),Group III; Gi-coupled
+GRID1,Glutamate ionotropic delta receptor subunit 1,Glutamate,Receptor (LGIC-orphan),GluD1; synaptogenesis
+GRID2,Glutamate ionotropic delta receptor subunit 2,Glutamate,Receptor (LGIC-orphan),GluD2; cerebellar Purkinje cells
+SLC17A7,Solute carrier family 17 member 7 (VGLUT1),Glutamate,Transporter (vesicular),Vesicular glutamate transporter 1; cortical
+SLC17A6,Solute carrier family 17 member 6 (VGLUT2),Glutamate,Transporter (vesicular),Vesicular glutamate transporter 2; subcortical
+SLC17A8,Solute carrier family 17 member 8 (VGLUT3),Glutamate,Transporter (vesicular),Vesicular glutamate transporter 3; co-transmitter
+SLC1A1,Solute carrier family 1 member 1 (EAAC1/EAAT3),Glutamate,Transporter (reuptake),Neuronal glutamate transporter
+SLC1A2,Solute carrier family 1 member 2 (GLT-1/EAAT2),Glutamate,Transporter (reuptake),Major astrocytic glutamate transporter; 90% of glutamate clearance
+SLC1A3,Solute carrier family 1 member 3 (GLAST/EAAT1),Glutamate,Transporter (reuptake),Astrocytic glutamate transporter; cerebellum-enriched
+SLC1A6,Solute carrier family 1 member 6 (EAAT4),Glutamate,Transporter (reuptake),Purkinje cell glutamate transporter
+SLC1A7,Solute carrier family 1 member 7 (EAAT5),Glutamate,Transporter (reuptake),Retinal glutamate transporter
+GLS,Glutaminase,Glutamate,Synthesis enzyme,Converts glutamine → glutamate in neurons
+GLS2,Glutaminase 2,Glutamate,Synthesis enzyme,Liver-type glutaminase; some brain expression
+GLUL,Glutamine synthetase,Glutamate,Metabolism enzyme,Converts glutamate → glutamine in astrocytes; glutamate-glutamine cycle
+CHRNA1,Cholinergic receptor nicotinic alpha 1,Acetylcholine,Receptor (LGIC) subunit,nAChR alpha 1; neuromuscular/sensory
+CHRNA2,Cholinergic receptor nicotinic alpha 2,Acetylcholine,Receptor (LGIC) subunit,nAChR alpha 2; brain nicotinic
+CHRNA3,Cholinergic receptor nicotinic alpha 3,Acetylcholine,Receptor (LGIC) subunit,nAChR alpha 3; brain nicotinic
+CHRNA4,Cholinergic receptor nicotinic alpha 4,Acetylcholine,Receptor (LGIC) subunit,nAChR alpha 4; brain nicotinic
+CHRNA5,Cholinergic receptor nicotinic alpha 5,Acetylcholine,Receptor (LGIC) subunit,nAChR alpha 5; brain nicotinic
+CHRNA6,Cholinergic receptor nicotinic alpha 6,Acetylcholine,Receptor (LGIC) subunit,nAChR alpha 6; brain nicotinic
+CHRNA7,Cholinergic receptor nicotinic alpha 7,Acetylcholine,Receptor (LGIC) subunit,nAChR alpha 7; brain nicotinic
+CHRNA9,Cholinergic receptor nicotinic alpha 9,Acetylcholine,Receptor (LGIC) subunit,nAChR alpha 9; neuromuscular/sensory
+CHRNA10,Cholinergic receptor nicotinic alpha 10,Acetylcholine,Receptor (LGIC) subunit,nAChR alpha 10; neuromuscular/sensory
+CHRNB1,Cholinergic receptor nicotinic beta 1,Acetylcholine,Receptor (LGIC) subunit,nAChR beta 1
+CHRNB2,Cholinergic receptor nicotinic beta 2,Acetylcholine,Receptor (LGIC) subunit,nAChR beta 2
+CHRNB3,Cholinergic receptor nicotinic beta 3,Acetylcholine,Receptor (LGIC) subunit,nAChR beta 3
+CHRNB4,Cholinergic receptor nicotinic beta 4,Acetylcholine,Receptor (LGIC) subunit,nAChR beta 4
+CHRND,Cholinergic receptor nicotinic delta,Acetylcholine,Receptor (LGIC) subunit,Neuromuscular junction
+CHRNE,Cholinergic receptor nicotinic epsilon,Acetylcholine,Receptor (LGIC) subunit,Adult neuromuscular junction
+CHRNG,Cholinergic receptor nicotinic gamma,Acetylcholine,Receptor (LGIC) subunit,Fetal neuromuscular junction
+CHRM1,Cholinergic receptor muscarinic 1,Acetylcholine,Receptor (GPCR),M1; Gq-coupled; cortical cognition
+CHRM2,Cholinergic receptor muscarinic 2,Acetylcholine,Receptor (GPCR),M2; Gi-coupled; cardiac; autoreceptor
+CHRM3,Cholinergic receptor muscarinic 3,Acetylcholine,Receptor (GPCR),"M3; Gq-coupled; smooth muscle, glands"
+CHRM4,Cholinergic receptor muscarinic 4,Acetylcholine,Receptor (GPCR),M4; Gi-coupled; striatum
+CHRM5,Cholinergic receptor muscarinic 5,Acetylcholine,Receptor (GPCR),M5; Gq-coupled; substantia nigra
+CHAT,Choline acetyltransferase,Acetylcholine,Synthesis enzyme,Synthesizes ACh from choline + acetyl-CoA
+ACHE,Acetylcholinesterase,Acetylcholine,Degradation enzyme,Rapid ACh hydrolysis; donepezil/galantamine/rivastigmine target
+BCHE,Butyrylcholinesterase,Acetylcholine,Degradation enzyme,Pseudo-cholinesterase; also degrades ACh
+SLC5A7,Solute carrier family 5 member 7 (CHT),Acetylcholine,Transporter (reuptake),High-affinity choline transporter; rate-limiting for ACh synthesis
+SLC18A3,Solute carrier family 18 member 3 (VAChT),Acetylcholine,Transporter (vesicular),Vesicular ACh transporter; loads ACh into vesicles
+OPRM1,Opioid receptor mu 1,Opioid,Receptor (GPCR),Gi-coupled; morphine/fentanyl/endorphin target
+OPRD1,Opioid receptor delta 1,Opioid,Receptor (GPCR),Gi-coupled; enkephalin target
+OPRK1,Opioid receptor kappa 1,Opioid,Receptor (GPCR),Gi-coupled; dynorphin; dysphoria; salvinorin A
+OPRL1,Opioid related nociceptin receptor 1,Opioid,Receptor (GPCR),Nociceptin/orphanin FQ receptor (NOP); Gi-coupled
+PENK,Proenkephalin,Opioid,Neuropeptide precursor,Precursor of met-enkephalin and leu-enkephalin
+PDYN,Prodynorphin,Opioid,Neuropeptide precursor,Precursor of dynorphins (kappa agonists)
+POMC,Proopiomelanocortin,Opioid/Melanocortin,Neuropeptide precursor,"Precursor of beta-endorphin, ACTH, alpha-MSH"
+PNOC,Prepronociceptin,Opioid,Neuropeptide precursor,Precursor of nociceptin/orphanin FQ
+HRH1,Histamine receptor H1,Histamine,Receptor (GPCR),Gq-coupled; sedation when blocked; antihistamine target
+HRH2,Histamine receptor H2,Histamine,Receptor (GPCR),Gs-coupled; gastric acid
+HRH3,Histamine receptor H3,Histamine,Receptor (GPCR),Gi-coupled; autoreceptor; CNS; pitolisant target (narcolepsy)
+HRH4,Histamine receptor H4,Histamine,Receptor (GPCR),Gi-coupled; immune cells
+HDC,Histidine decarboxylase,Histamine,Synthesis enzyme,Converts histidine → histamine
+HNMT,Histamine N-methyltransferase,Histamine,Degradation enzyme,Brain histamine degradation
+GLRA1,Glycine receptor alpha 1,Glycine,Receptor (LGIC) subunit,Inhibitory Cl- channel; spinal cord/brainstem
+GLRA2,Glycine receptor alpha 2,Glycine,Receptor (LGIC) subunit,Predominant embryonic form
+GLRA3,Glycine receptor alpha 3,Glycine,Receptor (LGIC) subunit,Pain processing; spinal dorsal horn
+GLRB,Glycine receptor beta,Glycine,Receptor (LGIC) subunit,Structural subunit; anchoring to gephyrin
+SLC6A5,Solute carrier family 6 member 5 (GlyT2),Glycine,Transporter (reuptake),Glycine transporter 2; presynaptic; hyperekplexia mutations
+SLC6A9,Solute carrier family 6 member 9 (GlyT1),Glycine,Transporter (reuptake),Glycine transporter 1; glial; NMDA co-agonist regulation
+CNR1,Cannabinoid receptor 1,Cannabinoid,Receptor (GPCR),Gi-coupled; CB1; most abundant brain GPCR; THC target
+CNR2,Cannabinoid receptor 2,Cannabinoid,Receptor (GPCR),Gi-coupled; CB2; immune cells; some brain expression
+DAGLA,Diacylglycerol lipase alpha,Cannabinoid,Synthesis enzyme,Synthesizes 2-AG (main endocannabinoid)
+DAGLB,Diacylglycerol lipase beta,Cannabinoid,Synthesis enzyme,Synthesizes 2-AG
+NAPEPLD,N-acyl phosphatidylethanolamine phospholipase D,Cannabinoid,Synthesis enzyme,Synthesizes anandamide
+FAAH,Fatty acid amide hydrolase,Cannabinoid,Degradation enzyme,Degrades anandamide; drug target
+MGLL,Monoglyceride lipase,Cannabinoid,Degradation enzyme,Degrades 2-AG
+ADORA1,Adenosine A1 receptor,Adenosine,Receptor (GPCR),Gi-coupled; sedation; caffeine antagonist
+ADORA2A,Adenosine A2A receptor,Adenosine,Receptor (GPCR),Gs-coupled; striatum; caffeine antagonist; istradefylline (Parkinson)
+ADORA2B,Adenosine A2B receptor,Adenosine,Receptor (GPCR),Gs-coupled; low affinity
+ADORA3,Adenosine A3 receptor,Adenosine,Receptor (GPCR),Gi-coupled; inflammation
+P2RX1,Purinergic receptor P2X 1,Purinergic,Receptor (LGIC),ATP-gated cation channel
+P2RX2,Purinergic receptor P2X 2,Purinergic,Receptor (LGIC),ATP-gated cation channel
+P2RX3,Purinergic receptor P2X 3,Purinergic,Receptor (LGIC),ATP-gated cation channel; pain signaling
+P2RX4,Purinergic receptor P2X 4,Purinergic,Receptor (LGIC),ATP-gated cation channel; pain signaling
+P2RX5,Purinergic receptor P2X 5,Purinergic,Receptor (LGIC),ATP-gated cation channel
+P2RX6,Purinergic receptor P2X 6,Purinergic,Receptor (LGIC),ATP-gated cation channel
+P2RX7,Purinergic receptor P2X 7,Purinergic,Receptor (LGIC),ATP-gated cation channel; neuroinflammation/microglia
+P2RY1,Purinergic receptor P2Y 1,Purinergic,Receptor (GPCR),Gq-coupled
+P2RY2,Purinergic receptor P2Y 2,Purinergic,Receptor (GPCR),Gq-coupled
+P2RY4,Purinergic receptor P2Y 4,Purinergic,Receptor (GPCR),Gq-coupled
+P2RY6,Purinergic receptor P2Y 6,Purinergic,Receptor (GPCR),Gq-coupled
+P2RY11,Purinergic receptor P2Y 11,Purinergic,Receptor (GPCR),Gs/Gq-coupled
+P2RY12,Purinergic receptor P2Y 12,Purinergic,Receptor (GPCR),Gi-coupled; microglia chemotaxis
+P2RY13,Purinergic receptor P2Y 13,Purinergic,Receptor (GPCR),Gi-coupled
+P2RY14,Purinergic receptor P2Y 14,Purinergic,Receptor (GPCR),Gi-coupled
+TACR1,Tachykinin receptor 1 (NK1R),Neuropeptide,Receptor (GPCR),"Substance P receptor; pain, emesis; aprepitant target"
+TACR2,Tachykinin receptor 2 (NK2R),Neuropeptide,Receptor (GPCR),Neurokinin A receptor
+TACR3,Tachykinin receptor 3 (NK3R),Neuropeptide,Receptor (GPCR),Neurokinin B receptor; reproduction
+HCRTR1,Hypocretin receptor 1 (OX1R),Neuropeptide,Receptor (GPCR),Orexin-1 receptor; wakefulness
+HCRTR2,Hypocretin receptor 2 (OX2R),Neuropeptide,Receptor (GPCR),Orexin-2 receptor; suvorexant/lemborexant target
+OXTR,Oxytocin receptor,Neuropeptide,Receptor (GPCR),"Social bonding, trust; Gq-coupled"
+AVPR1A,Arginine vasopressin receptor 1A,Neuropeptide,Receptor (GPCR),"V1a; social behavior, aggression"
+AVPR1B,Arginine vasopressin receptor 1B,Neuropeptide,Receptor (GPCR),V1b; ACTH release; stress
+AVPR2,Arginine vasopressin receptor 2,Neuropeptide,Receptor (GPCR),V2; renal water reabsorption
+CRHR1,Corticotropin releasing hormone receptor 1,Neuropeptide,Receptor (GPCR),HPA axis; stress; anxiety
+CRHR2,Corticotropin releasing hormone receptor 2,Neuropeptide,Receptor (GPCR),Stress recovery
+NPY1R,Neuropeptide Y receptor Y1,Neuropeptide,Receptor (GPCR),"Gi-coupled; feeding, anxiety"
+NPY2R,Neuropeptide Y receptor Y2,Neuropeptide,Receptor (GPCR),Gi-coupled; presynaptic autoreceptor
+NPY4R,Neuropeptide Y receptor Y4,Neuropeptide,Receptor (GPCR),Pancreatic polypeptide preferred
+NPY5R,Neuropeptide Y receptor Y5,Neuropeptide,Receptor (GPCR),Gi-coupled; feeding
+CCKAR,Cholecystokinin A receptor,Neuropeptide,Receptor (GPCR),CCK-A; satiety; Gq-coupled
+CCKBR,Cholecystokinin B receptor,Neuropeptide,Receptor (GPCR),"CCK-B/gastrin; anxiety, panic"
+NTSR1,Neurotensin receptor 1,Neuropeptide,Receptor (GPCR),Gq-coupled; dopamine modulation
+NTSR2,Neurotensin receptor 2,Neuropeptide,Receptor (GPCR),Gq-coupled; pain
+SSTR1,Somatostatin receptor 1,Neuropeptide,Receptor (GPCR),Gi-coupled; SST1; neuroendocrine
+SSTR2,Somatostatin receptor 2,Neuropeptide,Receptor (GPCR),Gi-coupled; SST2; neuroendocrine
+SSTR3,Somatostatin receptor 3,Neuropeptide,Receptor (GPCR),Gi-coupled; SST3; neuroendocrine
+SSTR4,Somatostatin receptor 4,Neuropeptide,Receptor (GPCR),Gi-coupled; SST4; neuroendocrine
+SSTR5,Somatostatin receptor 5,Neuropeptide,Receptor (GPCR),Gi-coupled; SST5; neuroendocrine
+GALR1,Galanin receptor 1,Neuropeptide,Receptor (GPCR),"Gi-coupled; mood, cognition"
+GALR2,Galanin receptor 2,Neuropeptide,Receptor (GPCR),Gq-coupled; neurogenesis
+GALR3,Galanin receptor 3,Neuropeptide,Receptor (GPCR),Gi-coupled
+MC3R,Melanocortin 3 receptor,Neuropeptide,Receptor (GPCR),Energy homeostasis
+MC4R,Melanocortin 4 receptor,Neuropeptide,Receptor (GPCR),Appetite/weight; setmelanotide target
+NTRK1,Neurotrophic receptor tyrosine kinase 1 (TrkA),Neurotrophin,Receptor (RTK),NGF receptor
+NTRK2,Neurotrophic receptor tyrosine kinase 2 (TrkB),Neurotrophin,Receptor (RTK),"BDNF/NT-4 receptor; 7,8-DHF target; plasticity"
+NTRK3,Neurotrophic receptor tyrosine kinase 3 (TrkC),Neurotrophin,Receptor (RTK),NT-3 receptor
+NGFR,Nerve growth factor receptor (p75NTR),Neurotrophin,Receptor (TNF-R family),Pan-neurotrophin receptor; apoptosis/survival
+BDNF,Brain-derived neurotrophic factor,Neurotrophin,Neuropeptide/Growth factor,"TrkB ligand; plasticity, LTP, antidepressant mechanism"
+NGF,Nerve growth factor,Neurotrophin,Neuropeptide/Growth factor,TrkA ligand; basal forebrain cholinergic neurons
+SLC18A1,Solute carrier family 18 member 1 (VMAT1),Monoamine (general),Transporter (vesicular),Vesicular monoamine transporter 1; peripheral
+SLC18A2,Solute carrier family 18 member 2 (VMAT2),Monoamine (general),Transporter (vesicular),Vesicular monoamine transporter 2; brain; reserpine/tetrabenazine target
+TAAR1,Trace amine associated receptor 1,Trace amine,Receptor (GPCR),Gs-coupled; modulates DA/5-HT; amphetamine target; ulotaront (schizophrenia)
+TAAR2,Trace amine associated receptor 2,Trace amine,Receptor (GPCR),Olfactory
+TAAR5,Trace amine associated receptor 5,Trace amine,Receptor (GPCR),Olfactory; trimethylamine detection
+SIGMAR1,Sigma non-opioid intracellular receptor 1,Sigma,Receptor (chaperone),"ER chaperone; modulates NMDA, IP3R; fluvoxamine/dextromethorphan target"
+TMEM97,Transmembrane protein 97 (Sigma-2),Sigma,Receptor,Sigma-2 receptor; cell proliferation; less characterized
+MTNR1A,Melatonin receptor 1A,Melatonin,Receptor (GPCR),MT1; Gi-coupled; circadian; ramelteon/tasimelteon target
+MTNR1B,Melatonin receptor 1B,Melatonin,Receptor (GPCR),MT2; Gi-coupled; circadian; glucose metabolism
+AANAT,Aralkylamine N-acetyltransferase,Melatonin,Synthesis enzyme,Rate-limiting for melatonin synthesis; serotonin → N-acetylserotonin
+ASMT,Acetylserotonin O-methyltransferase (HIOMT),Melatonin,Synthesis enzyme,N-acetylserotonin → melatonin; final step
+CACNA1A,Calcium voltage-gated channel subunit alpha1 A (P/Q-type),Ion channel,Voltage-gated Ca2+,P/Q-type; presynaptic NT release; migraine
+CACNA1B,Calcium voltage-gated channel subunit alpha1 B (N-type),Ion channel,Voltage-gated Ca2+,N-type; presynaptic NT release; pain (ziconotide)
+CACNA1C,Calcium voltage-gated channel subunit alpha1 C (L-type),Ion channel,Voltage-gated Ca2+,L-type Cav1.2; cardiac/neuronal; psychiatric GWAS
+CACNA1D,Calcium voltage-gated channel subunit alpha1 D (L-type),Ion channel,Voltage-gated Ca2+,"L-type Cav1.3; auditory, cardiac pacemaker"
+CACNA1E,Calcium voltage-gated channel subunit alpha1 E (R-type),Ion channel,Voltage-gated Ca2+,R-type; dendritic integration
+CACNA2D1,Calcium voltage-gated channel auxiliary subunit alpha2delta 1,Ion channel,Voltage-gated Ca2+ auxiliary,"Gabapentin/pregabalin binding site; pain, anxiety"
+CACNA2D2,Calcium voltage-gated channel auxiliary subunit alpha2delta 2,Ion channel,Voltage-gated Ca2+ auxiliary,Cerebellar; epilepsy
+SCN1A,Sodium voltage-gated channel alpha subunit 1 (Nav1.1),Ion channel,Voltage-gated Na+,GABAergic interneurons; Dravet syndrome; epilepsy
+SCN2A,Sodium voltage-gated channel alpha subunit 2 (Nav1.2),Ion channel,Voltage-gated Na+,Axon initial segment; epilepsy
+SCN3A,Sodium voltage-gated channel alpha subunit 3 (Nav1.3),Ion channel,Voltage-gated Na+,Embryonic; re-expressed after injury
+SCN8A,Sodium voltage-gated channel alpha subunit 8 (Nav1.6),Ion channel,Voltage-gated Na+,Nodes of Ranvier; epilepsy
+SCN9A,Sodium voltage-gated channel alpha subunit 9 (Nav1.7),Ion channel,Voltage-gated Na+,Pain nociceptors; loss=insensitivity to pain
+KCNA1,Potassium voltage-gated channel subfamily A member 1 (Kv1.1),Ion channel,Voltage-gated K+,Episodic ataxia type 1
+KCNA2,Potassium voltage-gated channel subfamily A member 2 (Kv1.2),Ion channel,Voltage-gated K+,Axonal repolarization
+KCNQ2,Potassium voltage-gated channel subfamily Q member 2,Ion channel,Voltage-gated K+,M-current; neonatal epilepsy; retigabine target
+KCNQ3,Potassium voltage-gated channel subfamily Q member 3,Ion channel,Voltage-gated K+,M-current; forms heteromer with KCNQ2
+HCN1,Hyperpolarization activated cyclic nucleotide gated potassium channel 1,Ion channel,HCN,Ih current; neuronal pacemaker; propofol sensitivity
+HCN2,Hyperpolarization activated cyclic nucleotide gated potassium channel 2,Ion channel,HCN,Ih current; thalamocortical oscillations
+HCN4,Hyperpolarization activated cyclic nucleotide gated potassium channel 4,Ion channel,HCN,Cardiac pacemaker; some brain expression
+NISCH,Nischarin (I1 imidazoline receptor),Imidazoline,Receptor,I1 receptor; clonidine/moxonidine; agmatine
+PPP1R1B,Protein phosphatase 1 regulatory inhibitor subunit 1B,Dopamine,Signaling,Actually PPP1R1B; dopamine/cAMP signaling integrator in MSNs
+ALDH2,Aldehyde dehydrogenase 2,Monoamine (general),Degradation enzyme,Metabolizes DOPAL (toxic DA metabolite) and acetaldehyde
+NOS1,Nitric oxide synthase 1 (neuronal nNOS),Nitric oxide,Synthesis enzyme,Neuronal NO production; NMDA-coupled; retrograde signaling
+TRPV1,Transient receptor potential cation channel subfamily V member 1,Cannabinoid/Pain,Receptor (ion channel),Vanilloid receptor; capsaicin; anandamide target
+,,,,
+=== EXCLUDED (false positives) ===,,,,
+HTRA1,HtrA serine peptidase 1,NOT serotonin,EXCLUDE,Serine peptidase; NOT HTR (serotonin) receptor
+HTRA2,HtrA serine peptidase 2,NOT serotonin,EXCLUDE,Serine peptidase; NOT HTR receptor
+HTRA3,HtrA serine peptidase 3,NOT serotonin,EXCLUDE,Serine peptidase; NOT HTR receptor
+GABARAP,GABA-A receptor associated protein,NOT GABA receptor,EXCLUDE,Autophagy protein; NOT a receptor subunit
+GABARAPL1,GABA-A receptor associated protein like 1,NOT GABA receptor,EXCLUDE,Autophagy protein
+GABARAPL2,GABA-A receptor associated protein like 2,NOT GABA receptor,EXCLUDE,Autophagy protein (GATE-16)
+GABARAPL3,GABA-A receptor associated protein like 3,NOT GABA receptor,EXCLUDE,Pseudogene
+SLC6A10P,SLC6A10 pseudogene,Pseudogene,EXCLUDE,Creatine transporter pseudogene
+HTR5BP,5-HT receptor 5B pseudogene,Pseudogene,EXCLUDE,Non-functional in humans
+GLRA4,Glycine receptor alpha 4,Glycine,EXCLUDE,Pseudogene in humans

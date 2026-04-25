@@ -1,0 +1,9 @@
+# Ignore all generated caches and large outputs
+*
+!.gitignore
+# Track small schema/config (needed to run pipeline)
+!neurovault_pharma_schema.json
+!receptor_knowledge_base.json
+!receptor_gene_names_v2.json
+!gene_info.json
+!relation_weights.json

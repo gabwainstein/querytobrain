@@ -1,0 +1,100 @@
+# Environment and secrets (never commit)
+.env
+.env.*
+!.env.example
+
+# IDE and local tooling
+.cursor/
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Python
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+eggs/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Generated data and caches (rebuilt by scripts)
+neurolab/data/decoder_cache/
+neurolab/data/neurosynth_cache/
+neurolab/data/unified_cache/
+neurolab/data/unified_cache_expanded/
+neurolab/data/neurovault_cache/
+neurolab/data/neurovault_cache_improved/
+neurolab/data/neurovault_cache_relabeled/
+neurolab/data/neurovault_pharma_cache/
+neurolab/data/neurovault_pharma_cache_improved/
+neurolab/data/neurovault_pharma_cache_relabeled/
+neurolab/data/neurovault_pharma_cache_semantic/
+neurolab/data/neuromaps_cache/
+neurolab/data/enigma_cache/
+neurolab/data/abagen_cache/
+neurolab/data/abagen_cache_*/
+neurolab/data/merged_sources/
+neurolab/data/embedding_model/
+neurolab/data/embedding_*/
+neurolab/data/neurovault_curated_data/
+neurolab/data/neurovault_data/
+neurolab/data/neurovault_pharma_data/
+neurolab/data/neuromaps_data/
+neurolab/data/neurosynth_data/
+neurolab/data/compound_literature/
+neurolab/data/pdsp_ki/
+neurolab/data/pdsp_cache/
+neurolab/data/gene_pca/
+neurolab/data/fc_cache/
+neurolab/data/ontology_embeddings/
+neurolab/data/embeddings_openai*/
+neurolab/data/atlas_cache/
+neurolab/data/*.npy
+neurolab/data/*.npz
+neurolab/data/*.pt
+neurolab/data/ontologies/*.owl
+neurolab/data/ontologies/*.obo
+neurolab/data/ontologies/*.ttl
+neurolab/data/ontologies/*.json
+neurolab/data/nootropics_ontology_index.json
+
+# Model artifacts written outside neurolab/data when users pass custom --output-dir
+neurolab/embedding_model*/
+
+# Keep small schema/config in data (tracked)
+!neurolab/data/.gitignore
+!neurolab/data/neurovault_pharma_schema.json
+!neurolab/data/receptor_knowledge_base.json
+!neurolab/data/receptor_gene_names_v2.json
+!neurolab/data/gene_info.json
+!neurolab/data/relation_weights.json
+
+# External download dirs
+neuroquery_data/
+nilearn_cache/
+
+# Jupyter
+.ipynb_checkpoints/
+*.ipynb_checkpoints
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Eliza runtime database (never commit)
+**/.eliza/
+
+# Logs and temp
+*.log
+*.tmp
+.cache/
