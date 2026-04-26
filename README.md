@@ -30,3 +30,4 @@ See [HANDOVER.md](HANDOVER.md) for a full audit-and-run guide.
 ## Contributing
 
 Follow the process in [neurolab/docs/process/](neurolab/docs/process/) (definition of ready/done, documentation rules, issue types). Work is documentation-first: product and architecture docs constrain implementation.
+
