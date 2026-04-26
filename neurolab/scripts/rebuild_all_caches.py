@@ -86,7 +86,6 @@ def main() -> int:
     ap.add_argument("--skip-neuromaps", action="store_true", help="Skip neuromaps cache")
     ap.add_argument("--skip-enigma", action="store_true", help="Skip ENIGMA structural cache")
     ap.add_argument("--skip-abagen", action="store_true", help="Skip abagen gene expression cache")
-    ap.add_argument("--skip-pdsp", action="store_true", help="Skip PDSP Ki cache (compound→brain pharmacological pathway). PDSP is required for full pharmacological inference.")
     ap.add_argument("--build-expanded", action="store_true", help="Also build decoder_cache_expanded (ontology + merges); default: merged_sources only for training")
     ap.add_argument("--relabel-neurovault", action="store_true",
                     help="Run LLM relabeling on NeuroVault caches (requires OPENAI_API_KEY; discards junk, fixes vague labels)")
@@ -311,23 +310,6 @@ def main() -> int:
             required=False,
         )
 
-    # 8b. PDSP Ki cache (compound→brain pharmacological pathway; required for drug inference)
-    if not args.skip_pdsp:
-        gene_pca_dir = data_dir / "gene_pca"
-        if not (gene_pca_dir / "pc_scores_full.npy").exists():
-            ok &= run("run_gene_pca_phase1.py", ["--output-dir", str(gene_pca_dir)], "Gene PCA Phase 1", required=False)
-            ok &= run("run_gene_pca_phase2.py", ["--output-dir", str(gene_pca_dir)], "Gene PCA Phase 2", required=False)
-        if ok:
-            ok &= run("download_pdsp_ki.py", ["--output-dir", str(data_dir / "pdsp_ki")], "PDSP Ki database", required=False)
-        if ok and (data_dir / "pdsp_ki" / "KiDatabase.csv").exists():
-            ok &= run(
-                "build_pdsp_cache.py",
-                ["--output-dir", str(data_dir / "pdsp_cache"), "--gene-pca-dir", str(gene_pca_dir),
-                 "--pdsp-csv", str(data_dir / "pdsp_ki" / "KiDatabase.csv")],
-                f"PDSP cache ({n_parcels})",
-                required=False,
-            )
-
     # 9. Merged sources (unified + neuromaps + neurovault + enigma + abagen, NO ontology)
     # Use this for training first; expanded (with ontology) built separately when ready.
     if ok and (data_dir / "unified_cache" / "term_maps.npz").exists():
@@ -350,7 +332,6 @@ def main() -> int:
         if (data_dir / "enigma_cache" / "term_maps.npz").exists():
             merge_args += ["--enigma-cache-dir", str(data_dir / "enigma_cache")]
         if (data_dir / "abagen_cache" / "term_maps.npz").exists():
-            # Per plan (gene_expression_pca_plan.md): gene PCA basis from run_gene_pca_phase1/2 → data/gene_pca/, not merge.
             merge_args += ["--abagen-cache-dir", str(data_dir / "abagen_cache"), "--max-abagen-terms", "500", "--abagen-add-gradient-pcs", "3", "--add-pet-residuals"]
         if args.receptor_path and Path(args.receptor_path).exists():
             merge_args += ["--receptor-path", args.receptor_path]

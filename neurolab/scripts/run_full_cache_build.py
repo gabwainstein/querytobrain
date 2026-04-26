@@ -66,7 +66,6 @@ def main() -> int:
     ap.add_argument("--skip-enigma", action="store_true")
     ap.add_argument("--skip-pharma-neurosynth", action="store_true")
     ap.add_argument("--skip-abagen", action="store_true")
-    ap.add_argument("--skip-pdsp", action="store_true", help="Skip PDSP Ki cache (compound→brain pharmacological pathway). PDSP is required for full pharmacological inference.")
     ap.add_argument("--skip-fc", action="store_true", help="Skip FC cache (ENIGMA load_fc)")
     ap.add_argument("--relabel-neurovault", action="store_true",
                     help="Run LLM relabeling on NeuroVault caches (requires OPENAI_API_KEY; discards junk, fixes vague labels)")
@@ -228,20 +227,6 @@ def main() -> int:
         ok &= run("build_abagen_cache.py", ["--output-dir", str(_data / "abagen_cache"), "--all-genes"],
                   "abagen gene expression cache")
 
-    # 11. PDSP Ki cache (compound→brain pharmacological pathway; required for drug inference)
-    if not args.skip_pdsp:
-        gene_pca_dir = _data / "gene_pca"
-        needs_gene_pca = not (gene_pca_dir / "pc_scores_full.npy").exists()
-        if needs_gene_pca:
-            ok &= run("run_gene_pca_phase1.py", ["--output-dir", str(gene_pca_dir)], "Gene PCA Phase 1 (expression)")
-            ok &= run("run_gene_pca_phase2.py", ["--output-dir", str(gene_pca_dir)], "Gene PCA Phase 2 (PCA basis)")
-        if ok:
-            ok &= run("download_pdsp_ki.py", ["--output-dir", str(_data / "pdsp_ki")], "PDSP Ki database")
-        if ok and (_data / "pdsp_ki" / "KiDatabase.csv").exists():
-            ok &= run("build_pdsp_cache.py",
-                      ["--output-dir", str(_data / "pdsp_cache"), "--gene-pca-dir", str(gene_pca_dir),
-                       "--pdsp-csv", str(_data / "pdsp_ki" / "KiDatabase.csv")],
-                      "PDSP cache (compound spatial maps)")
 
     # 12. Merged sources (training set)
     if ok and (_data / "unified_cache" / "term_maps.npz").exists():
