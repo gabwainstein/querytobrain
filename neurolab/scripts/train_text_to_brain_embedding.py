@@ -887,8 +887,18 @@ def main():
             scripts_dir = os.path.dirname(os.path.abspath(__file__))
             if scripts_dir not in sys.path:
                 sys.path.insert(0, scripts_dir)
-            from graph_distance_correlation import _normalize, build_unified_graph  # noqa: E402
-            from ontology_term_dendrogram import build_hierarchy_distance_matrix  # noqa: E402
+            try:
+                from graph_distance_correlation import _normalize, build_unified_graph  # noqa: E402
+                from ontology_term_dendrogram import build_hierarchy_distance_matrix  # noqa: E402
+            except ImportError as exc:
+                print(
+                    f"--triad-pairwise-loss requires graph_distance_correlation and "
+                    f"ontology_term_dendrogram, which were removed in the production "
+                    f"cleanup. Re-add those scripts to use this experimental flag. "
+                    f"(underlying error: {exc})",
+                    file=__import__("sys").stderr,
+                )
+                __import__("sys").exit(1)
             G = build_unified_graph(ont_path)
             graph_nodes = set(G.nodes())
             terms_in_graph_norm = list(dict.fromkeys(_normalize(t) for t in train_terms if _normalize(t) in graph_nodes))

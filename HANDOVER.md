@@ -228,14 +228,14 @@ Analytical or one-off audit docs (e.g. TRAINING_GAP_ANALYSIS, CACHE_AUDIT_*, REP
 - `check_training_readiness.py`, `ensure_all_brain_map_data_local.py`  
 - `composite_distance_utils.py` (used by graph/composite scripts)
 
-### 6.3 Optional / experimental / one-off
+### 6.3 Optional / experimental
 
-- `run_gradient_pc_label_experiments.py`, `run_embedding_experiments.py`, `run_encoder_comparison.py`  
-- `run_gene_pca_phase*.py`, `build_pdsp_cache.py`, `download_pdsp_ki.py`  
-- `graph_distance_correlation.py`, `ontology_brain_correlation.py`, `diagnose_*.py`  
-- `parameter_sweep_thresholds.py`, `inspect_expanded_maps.py`  
-- Various `analyze_*.py`, `report_*.py` (beyond `report_train_correlation_by_collection.py`)  
-- `relabel_terms_with_llm.py` (optional LLM relabeling)
+Experimental sweep, diagnostic, and analysis scripts were removed in the
+production cleanup. The shipping surface is the core/supporting set above
+plus `report_train_correlation_by_collection.py`. To re-enable
+experimental flags such as `--triad-pairwise-loss` in
+`train_text_to_brain_embedding.py`, restore the supporting scripts from
+git history.
 
 ---
 
