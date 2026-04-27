@@ -184,6 +184,25 @@ def main():
         help="Use trained text->brain embedding (expandable term space). Skips NeuroQuery; local only.",
     )
     parser.add_argument(
+        "--kg-gnn",
+        nargs="?",
+        const="neurolab/data/kg_brain_gnn_model",
+        default=None,
+        metavar="MODEL_DIR",
+        help="Blend in the KG-to-brain GNN prediction. If MODEL_DIR is omitted, uses neurolab/data/kg_brain_gnn_model.",
+    )
+    parser.add_argument(
+        "--kg-graph-dir",
+        default="neurolab/data/kg_brain_graph",
+        help="Heterogeneous graph dir for the KG-to-brain GNN (default: neurolab/data/kg_brain_graph).",
+    )
+    parser.add_argument(
+        "--kg-weight",
+        type=float,
+        default=0.3,
+        help="GNN blend weight when --kg-gnn is set (default: 0.3). 0=ignore, 1=GNN only.",
+    )
+    parser.add_argument(
         "--guardrail",
         choices=["on", "off", "warn"],
         default="on",
@@ -352,8 +371,15 @@ def main():
         enable_cognitive=True,
         enable_biological=True,
         n_parcels=n_parcels,
+        enable_kg_gnn=bool(args.kg_gnn),
+        kg_gnn_model_dir=args.kg_gnn,
+        kg_gnn_graph_dir=args.kg_graph_dir if args.kg_gnn else None,
     )
-    result = unified.enrich(parcellated, cognitive_top_n=args.top_n)
+    enrich_kwargs = {"cognitive_top_n": args.top_n}
+    if args.kg_gnn and unified.kg_predictor is not None:
+        enrich_kwargs["kg_query_text"] = args.term
+        enrich_kwargs["kg_weight"] = float(args.kg_weight)
+    result = unified.enrich(parcellated, **enrich_kwargs)
 
     print("\n--- Summary ---")
     print(result["summary"])

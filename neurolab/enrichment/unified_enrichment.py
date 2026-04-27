@@ -25,11 +25,29 @@ class UnifiedEnrichment:
         enable_cognitive: bool = True,
         enable_biological: bool = True,
         n_parcels: int = 392,
+        # KG-to-brain GNN ensemble (additive; off by default).
+        # When `enable_kg_gnn` is True and the model + graph dirs exist, callers
+        # can pass `kg_query_text` to enrich() to mix the GNN's prediction into
+        # the supplied parcel vector via `kg_weight`.
+        enable_kg_gnn: bool = False,
+        kg_gnn_model_dir: "Optional[str]" = None,
+        kg_gnn_graph_dir: "Optional[str]" = None,
     ):
         self.n_parcels = n_parcels
         self.cognitive: Optional[CognitiveDecoder] = None
         self.receptor: Optional[ReceptorEnrichment] = None
         self.neuromaps: Optional[NeuromapsEnrichment] = None
+        self.kg_predictor = None
+        if enable_kg_gnn and kg_gnn_model_dir and kg_gnn_graph_dir:
+            try:
+                from .kg_to_brain import KGToBrainPredictor  # local import keeps PyG optional
+                self.kg_predictor = KGToBrainPredictor(
+                    model_dir=kg_gnn_model_dir,
+                    graph_dir=kg_gnn_graph_dir,
+                )
+            except (ImportError, FileNotFoundError, RuntimeError) as exc:
+                self.kg_predictor = None
+                self._kg_init_error = str(exc)
 
         if enable_cognitive:
             try:
@@ -60,9 +78,16 @@ class UnifiedEnrichment:
         parcellated_activation: np.ndarray,
         cognitive_top_n: int = 20,
         biological_method: str = "pearson",
+        kg_query_text: Optional[str] = None,
+        kg_weight: float = 0.0,
     ) -> Dict:
         """
         Run cognitive decode and biological enrichment (receptor + optional neuromaps); build summary.
+
+        If `kg_query_text` and `kg_weight > 0` and a KG predictor was loaded, the input
+        parcellated_activation is blended with the GNN prediction:
+            mixed = (1 - kg_weight) * z(input) + kg_weight * z(gnn_predict(text))
+        before downstream enrichment. The blending is NaN-safe.
 
         Returns:
             dict with keys: cognitive (optional), biological (merged receptor + neuromaps), summary.
@@ -71,18 +96,28 @@ class UnifiedEnrichment:
         activation = np.asarray(parcellated_activation, dtype=np.float64).ravel()
         if activation.shape[0] != self.n_parcels:
             raise ValueError(f"Expected {self.n_parcels} parcels, got {activation.shape[0]}")
+        if self.kg_predictor is not None and kg_query_text and kg_weight > 0.0:
+            try:
+                kg_map = np.asarray(self.kg_predictor.predict_map(kg_query_text), dtype=np.float64).ravel()
+                if kg_map.shape[0] == self.n_parcels and np.isfinite(kg_map).all():
+                    a_z = (activation - np.nanmean(activation)) / (np.nanstd(activation) + 1e-8)
+                    k_z = (kg_map - np.mean(kg_map)) / (np.std(kg_map) + 1e-8)
+                    activation = (1.0 - kg_weight) * a_z + kg_weight * k_z
+                    result["kg_gnn_used"] = True
+            except Exception as exc:
+                result["kg_gnn_error"] = str(exc)
 
         if self.cognitive:
             result["cognitive"] = self.cognitive.decode(
-                parcellated_activation,
+                activation,
                 top_n=cognitive_top_n,
             )
 
         biological_parts: List[Dict] = []
         if self.receptor:
-            biological_parts.append(("receptor", self.receptor.enrich(parcellated_activation, method=biological_method)))
+            biological_parts.append(("receptor", self.receptor.enrich(activation, method=biological_method)))
         if self.neuromaps:
-            biological_parts.append(("neuromaps", self.neuromaps.enrich(parcellated_activation, method=biological_method)))
+            biological_parts.append(("neuromaps", self.neuromaps.enrich(activation, method=biological_method)))
 
         if biological_parts:
             by_layer: Dict[str, list] = {}
