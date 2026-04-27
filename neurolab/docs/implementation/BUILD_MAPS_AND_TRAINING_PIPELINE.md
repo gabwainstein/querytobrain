@@ -6,6 +6,8 @@ This document is a **thorough, step-by-step guide** to building all maps, caches
 
 **Run all commands from the querytobrain repository root** (the directory that contains `neurolab/`). Paths are given relative to that root unless noted.
 
+> **Production note:** Several optional/experimental scripts referenced below were removed during the production cleanup (PDSP Ki, ChEMBL supplementary binding, Gene PCA phases, ACPI / OpenNeuro derivatives auxiliary downloaders, the standalone ontology graph cache builder, and the multi-source pharma wrapper). The core build pipeline at `run_full_cache_build.py` runs without them. To restore any of these for advanced experimentation, recover from git history (commit `c094235` and earlier).
+
 ---
 
 ## 0. One-command full build (with optional background Semantic Scholar)
