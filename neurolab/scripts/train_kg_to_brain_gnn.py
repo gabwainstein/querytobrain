@@ -187,6 +187,10 @@ def main():
     ap.add_argument("--eval-split", choices=["collection", "term", "both"], default="collection")
     ap.add_argument("--device", type=str, default=None)
     ap.add_argument("--seed", type=int, default=42)
+    ap.add_argument("--term-openai-embeddings", type=str, default=None,
+                    help="Path to the OpenAI term embeddings .npy used to build the graph "
+                         "(aligned with merged_sources term order). Saved into config.json so "
+                         "KGToBrainPredictor can resolve free-text queries via the same space.")
     args = ap.parse_args()
 
     _set_seed(args.seed)
@@ -227,6 +231,15 @@ def main():
             raw = pickle.load(fh)
         if isinstance(raw, dict):
             term_sources = {str(k): str(v) for k, v in raw.items()}
+        elif isinstance(raw, list) and len(raw) == len(vocab):
+            # Parallel list (one source per term in vocab order).
+            term_sources = {str(vocab[i]): str(raw[i]) for i in range(len(vocab))}
+        else:
+            sys.stderr.write(
+                f"WARN: term_sources.pkl format unrecognized "
+                f"(type={type(raw).__name__}); collection-split will silently "
+                f"degrade to random-per-term split.\n"
+            )
     if maps.shape[0] != len(vocab):
         raise ValueError(f"maps rows {maps.shape[0]} != vocab {len(vocab)}")
 
@@ -404,6 +417,7 @@ def main():
         "eval_split": args.eval_split,
         "epochs": args.epochs,
         "lr": args.lr,
+        "term_openai_embeddings_path": args.term_openai_embeddings,
     }
     with open(output_dir / "config.json", "w", encoding="utf-8") as fh:
         json.dump(config, fh, indent=2)

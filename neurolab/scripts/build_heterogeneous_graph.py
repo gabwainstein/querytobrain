@@ -360,6 +360,10 @@ def main():
     ap.add_argument("--output-dir", type=str, default="neurolab/data/kg_brain_graph")
     ap.add_argument("--quantile-threshold", type=float, default=0.9,
                     help="Per-term quantile cutoff for Term->Region message-passing edges")
+    ap.add_argument("--no-term-gene-mentions", action="store_true",
+                    help="Skip the Term->Gene mention edge extraction. Use to reproduce the "
+                         "graph schema from before that edge type was introduced (e.g. to load "
+                         "checkpoints trained on the older schema).")
     args = ap.parse_args()
 
     torch, HeteroData = _try_import_pyg()
@@ -525,10 +529,14 @@ def main():
         data[(dst_type, rev_rel, src_type)].edge_index = torch.stack([ei[1], ei[0]])
 
     # Term -> Gene mentions (text-mined from merged_sources term strings)
-    t2g_term_idx_raw, t2g_gene_symbols, _ = _term_gene_mentions(terms, set(gene_idx.keys()))
-    t2g_src = [term_idx[terms[i]] for i in t2g_term_idx_raw]
-    t2g_dst = [gene_idx[g] for g in t2g_gene_symbols]
-    print(f"[edges] Term->Gene (mentions): {len(t2g_src)}")
+    if args.no_term_gene_mentions:
+        t2g_src, t2g_dst = [], []
+        print(f"[edges] Term->Gene (mentions): SKIPPED (--no-term-gene-mentions)")
+    else:
+        t2g_term_idx_raw, t2g_gene_symbols, _ = _term_gene_mentions(terms, set(gene_idx.keys()))
+        t2g_src = [term_idx[terms[i]] for i in t2g_term_idx_raw]
+        t2g_dst = [gene_idx[g] for g in t2g_gene_symbols]
+        print(f"[edges] Term->Gene (mentions): {len(t2g_src)}")
 
     _add_edge("Term", "activates", "Region", sup_src, sup_dst)
     _add_edge("Gene", "expressedIn", "Region", g2r_src, g2r_dst)

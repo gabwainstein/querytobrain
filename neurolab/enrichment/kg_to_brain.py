@@ -19,6 +19,7 @@ from __future__ import annotations
 import json
 import os
 import pickle
+import sys
 from pathlib import Path
 from typing import Any, Optional
 
@@ -142,6 +143,8 @@ class KGToBrainPredictor:
         model_dir: str,
         graph_dir: str,
         device: Optional[str] = None,
+        openai_term_embeddings_path: Optional[str] = None,
+        openai_model: str = "text-embedding-3-large",
     ):
         torch, nn, F = _torch_modules()
         HeteroData, HeteroConv, RGCNConv = _pyg_modules()
@@ -161,6 +164,7 @@ class KGToBrainPredictor:
         with open(self.model_dir / "term_vocab.pkl", "rb") as fh:
             self.vocab = list(pickle.load(fh))
         self._vocab_index = {t: i for i, t in enumerate(self.vocab)}
+        self._vocab_lower = {t.lower().strip(): i for i, t in enumerate(self.vocab)}
 
         self.term_embeddings = np.load(self.model_dir / "term_embeddings.npy").astype(np.float32)
         self.data = torch.load(self.graph_dir / "hetero_data.pt", weights_only=False)
@@ -179,15 +183,108 @@ class KGToBrainPredictor:
         self.model.load_state_dict(torch.load(self.model_dir / "model.pt", map_location=self.device))
         self.model.eval()
 
+        # Free-text resolver: try to load the OpenAI term embeddings the model
+        # was trained against. Path can come from explicit arg or config.json
+        # (key: term_openai_embeddings_path). If neither is available, fall
+        # back to the hash-bag-of-tokens scheme (which is much weaker — print
+        # a warning the first time it's used).
+        emb_path = openai_term_embeddings_path or self.config.get("term_openai_embeddings_path")
+        self.openai_term_embeddings: Optional[np.ndarray] = None
+        self.openai_model = openai_model
+        if emb_path:
+            p = Path(emb_path)
+            if p.exists():
+                arr = np.load(p).astype(np.float32)
+                if arr.ndim == 2 and arr.shape[0] == len(self.vocab):
+                    norms = np.linalg.norm(arr, axis=1, keepdims=True) + 1e-8
+                    self.openai_term_embeddings = arr / norms
+                else:
+                    sys.stderr.write(
+                        f"WARN: OpenAI term embeddings shape {arr.shape} does not match "
+                        f"vocab size {len(self.vocab)}; ignoring\n"
+                    )
+        self._openai_client = None
+        self._hash_warned = False
+
+    def _ensure_env_loaded(self):
+        """Best-effort load of repo-root .env so OPENAI_API_KEY is visible."""
+        if os.environ.get("OPENAI_API_KEY"):
+            return
+        # Walk up from this file: .../neurolab/enrichment/kg_to_brain.py -> repo root
+        env_path = Path(__file__).resolve().parent.parent.parent / ".env"
+        if not env_path.exists():
+            return
+        try:
+            from dotenv import load_dotenv
+            load_dotenv(env_path)
+            return
+        except ImportError:
+            pass
+        for line in env_path.read_text(encoding="utf-8", errors="ignore").splitlines():
+            s = line.strip()
+            if not s or s.startswith("#") or "=" not in s:
+                continue
+            k, v = s.split("=", 1)
+            if k.strip() and k.strip() not in os.environ:
+                os.environ[k.strip()] = v.strip().strip("\"' ")
+
+    def _embed_query_openai(self, text: str) -> Optional[np.ndarray]:
+        """Embed `text` via OpenAI; returns a 1-D unit vector or None on failure."""
+        if self._openai_client is None:
+            self._ensure_env_loaded()
+            try:
+                from openai import OpenAI
+            except ImportError:
+                return None
+            try:
+                self._openai_client = OpenAI()
+            except Exception:
+                return None
+        try:
+            d = int(self.openai_term_embeddings.shape[1]) if self.openai_term_embeddings is not None else 0
+            kwargs = {"model": self.openai_model, "input": [text]}
+            if d > 0 and d != 3072:
+                kwargs["dimensions"] = d
+            resp = self._openai_client.embeddings.create(**kwargs)
+            v = np.asarray(resp.data[0].embedding, dtype=np.float32)
+            n = float(np.linalg.norm(v)) + 1e-8
+            return v / n
+        except Exception as exc:
+            sys.stderr.write(f"WARN: OpenAI embed failed ({exc}); falling back\n")
+            return None
+
     def _query_to_term_index(self, text: str) -> int:
-        """Resolve a free-text query to the nearest known Term row by cosine."""
+        """Resolve a free-text query to the nearest known Term row.
+
+        Resolution order (best → worst):
+          1. exact vocab hit
+          2. case-insensitive vocab hit
+          3. cosine search in the OpenAI embedding space (the same space the
+             graph's Term node features were built from). Embeds the query via
+             the OpenAI API on demand.
+          4. hash-bag-of-tokens fallback (weak; warns once).
+        """
         text = (text or "").strip()
+        if not text:
+            return 0
         if text in self._vocab_index:
             return self._vocab_index[text]
+        if text.lower() in self._vocab_lower:
+            return self._vocab_lower[text.lower()]
+        if self.openai_term_embeddings is not None:
+            q = self._embed_query_openai(text)
+            if q is not None:
+                sims = self.openai_term_embeddings @ q
+                return int(np.argmax(sims))
+        if not self._hash_warned:
+            sys.stderr.write(
+                "WARN: KGToBrainPredictor falling back to hash-based query resolver. "
+                "Set term_openai_embeddings_path in config.json (or pass "
+                "openai_term_embeddings_path=...) and ensure OPENAI_API_KEY is "
+                "available for accurate free-text matching.\n"
+            )
+            self._hash_warned = True
         toks = [t for t in text.lower().split() if t]
-        if not toks:
-            return 0
-        # Bag-of-token average using the same hash family as the graph builder.
         d = self.term_embeddings.shape[1]
         q = np.zeros(d, dtype=np.float32)
         for tok in toks:
