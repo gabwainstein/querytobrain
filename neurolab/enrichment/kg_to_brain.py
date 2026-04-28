@@ -303,6 +303,171 @@ class KGToBrainPredictor:
             pred = self.model(self.data, term_indices=t_idx)
         return pred.detach().cpu().numpy().ravel()
 
+    # ---------- True open-vocabulary inference ----------
+
+    # Same regex/stopwords as build_heterogeneous_graph.py so Term->Gene
+    # mention edges are derived consistently.
+    _GENE_TOKEN_RE = __import__("re").compile(r"\b[A-Z][A-Z0-9]{2,}\b")
+    _GENE_MENTION_STOPWORDS = frozenset({
+        "MRI", "FMRI", "PET", "MEG", "EEG", "BOLD", "ROI", "FOV", "MNI",
+        "DTI", "DWI", "QSM", "ASL", "FA", "MD", "AD", "RD", "GFA",
+        "ICA", "PCA", "GLM", "ANOVA", "ANCOVA", "RFX", "MFX", "MOCO",
+        "TFCE", "SPM", "FSL", "AFNI", "MELODIC", "FEAT", "FIX", "FRACE",
+        "BIDS", "NIFTI", "DICOM", "CIFTI", "GIFTI",
+        "PSD", "LFP", "ERP", "MUA", "SUA", "VOI",
+        "SET", "CIT", "TEC", "MAG", "CAP", "NET", "ART", "POS", "PRO",
+        "USP", "NTS", "KEY", "TOP", "END", "MAP", "TAR", "CON",
+    })
+
+    def _detect_gene_mentions(self, text: str) -> "list[int]":
+        """Return graph row indices for Gene nodes whose symbols appear in `text`."""
+        node_index_path = self.graph_dir / "node_index.pkl"
+        if not hasattr(self, "_gene_idx"):
+            with open(node_index_path, "rb") as fh:
+                node_index = pickle.load(fh)
+            self._gene_idx = node_index.get("Gene", {})
+        toks = set(self._GENE_TOKEN_RE.findall(text or ""))
+        matched = {t for t in toks if t in self._gene_idx and t not in self._GENE_MENTION_STOPWORDS}
+        return [self._gene_idx[g] for g in matched]
+
+    def predict_novel_term(
+        self,
+        text: str,
+        infer_term_gene_edges: bool = True,
+        borrow_neighbor_edges: bool = True,
+        n_neighbors: int = 1,
+    ) -> dict:
+        """Inject `text` as a brand-new Term node, propagate through the GNN, and
+        read out the prediction. Real graph-based open-vocabulary inference
+        (vs. `predict_map` which does nearest-neighbor lookup).
+
+        Args:
+            text: free-text query.
+            infer_term_gene_edges: if True, also add `Term -> Gene mentions`
+                edges between the new node and any gene symbols detected in
+                `text` (uses the same regex + stopwords as the graph builder).
+                These edges only matter if the trained graph schema includes
+                the `Term__mentions__Gene` edge type.
+
+        Returns:
+            dict with keys:
+              - `map` (np.ndarray, n_parcels): predicted parcellated map
+              - `gene_mentions` (list[str]): gene symbols detected in `text`
+              - `query_embedded`: True if the OpenAI query embedding was used,
+                False if we fell back to the in-vocab nearest neighbor's vector
+        """
+        torch = self._torch
+        text = (text or "").strip()
+        d_term = int(self.data["Term"].x.shape[1])
+
+        # 1. Get a feature vector in the same space as Term node features.
+        query_used_openai = False
+        feat = None
+        if self.openai_term_embeddings is not None and d_term == int(self.openai_term_embeddings.shape[1]):
+            v = self._embed_query_openai(text)
+            if v is not None and v.shape[0] == d_term:
+                feat = v.astype(np.float32)
+                query_used_openai = True
+        if feat is None:
+            # Fallback: use the in-vocab nearest neighbor's Term feature row.
+            idx = self._query_to_term_index(text)
+            feat = self.data["Term"].x[idx].detach().cpu().numpy().astype(np.float32)
+
+        # 2. Build augmented HeteroData with one extra Term row.
+        from torch_geometric.data import HeteroData
+        aug = HeteroData()
+        for nt in self.data.node_types:
+            x = self.data[nt].x
+            if nt == "Term":
+                new_row = torch.tensor(feat, dtype=x.dtype, device=x.device).unsqueeze(0)
+                aug[nt].x = torch.cat([x, new_row], dim=0)
+            else:
+                aug[nt].x = x
+
+        # 3. Copy existing edges; optionally borrow nearest neighbor's
+        #    Term-> edges and/or add Term -> Gene mention edges.
+        new_term_idx = aug["Term"].x.shape[0] - 1
+        gene_targets: "list[int]" = []
+        neighbor_terms: "list[int]" = []
+        for et in self.data.edge_types:
+            ei = self.data[et].edge_index
+            aug[et].edge_index = ei
+
+        if borrow_neighbor_edges:
+            # Find n_neighbors closest in-vocab Term rows in OpenAI embedding
+            # space (or fall back to encoded-Term-embedding space) and have the
+            # new node borrow each neighbor's outgoing/incoming edges.
+            if self.openai_term_embeddings is not None and query_used_openai:
+                sims = self.openai_term_embeddings @ feat
+            else:
+                # Fallback: use encoded term_embeddings.npy
+                te = self.term_embeddings
+                fn = feat / (np.linalg.norm(feat) + 1e-8)
+                te_n = te / (np.linalg.norm(te, axis=1, keepdims=True) + 1e-8)
+                sims = te_n @ fn[: te.shape[1]] if feat.shape[0] >= te.shape[1] else te_n @ np.pad(fn, (0, te.shape[1] - feat.shape[0]))
+            top_n = list(np.argsort(sims)[::-1][:max(1, int(n_neighbors))])
+            neighbor_terms = [int(i) for i in top_n]
+            # Copy edges where Term appears as src or dst, mapping to the new
+            # Term row index. Each (src_type, rel, dst_type) is handled.
+            for et in self.data.edge_types:
+                src_t, rel, dst_t = et
+                if src_t == "Term":
+                    ei = self.data[et].edge_index
+                    new_src_list = []
+                    new_dst_list = []
+                    for nb in neighbor_terms:
+                        mask = ei[0] == nb
+                        if int(mask.sum()) == 0:
+                            continue
+                        new_src_list.append(torch.full((int(mask.sum()),), new_term_idx, dtype=torch.long, device=self.device))
+                        new_dst_list.append(ei[1, mask].to(self.device))
+                    if new_src_list:
+                        added = torch.stack([torch.cat(new_src_list), torch.cat(new_dst_list)])
+                        aug[et].edge_index = torch.cat([aug[et].edge_index, added], dim=1)
+                if dst_t == "Term":
+                    ei = self.data[et].edge_index
+                    new_src_list = []
+                    new_dst_list = []
+                    for nb in neighbor_terms:
+                        mask = ei[1] == nb
+                        if int(mask.sum()) == 0:
+                            continue
+                        new_src_list.append(ei[0, mask].to(self.device))
+                        new_dst_list.append(torch.full((int(mask.sum()),), new_term_idx, dtype=torch.long, device=self.device))
+                    if new_src_list:
+                        added = torch.stack([torch.cat(new_src_list), torch.cat(new_dst_list)])
+                        aug[et].edge_index = torch.cat([aug[et].edge_index, added], dim=1)
+
+        if infer_term_gene_edges:
+            mention_et = ("Term", "mentions", "Gene")
+            rev_et = ("Gene", "rev_mentions", "Term")
+            if mention_et in self.data.edge_types or rev_et in self.data.edge_types:
+                gene_targets = self._detect_gene_mentions(text)
+                if gene_targets:
+                    src = torch.tensor([new_term_idx] * len(gene_targets), dtype=torch.long, device=self.device)
+                    dst = torch.tensor(gene_targets, dtype=torch.long, device=self.device)
+                    new_edges = torch.stack([src, dst])
+                    if mention_et in self.data.edge_types:
+                        aug[mention_et].edge_index = torch.cat([self.data[mention_et].edge_index, new_edges], dim=1)
+                    if rev_et in self.data.edge_types:
+                        rev_new = torch.stack([dst, src])
+                        aug[rev_et].edge_index = torch.cat([self.data[rev_et].edge_index, rev_new], dim=1)
+
+        # 4. Forward, read out the new term row.
+        with torch.no_grad():
+            pred = self.model(aug, term_indices=torch.tensor([new_term_idx], dtype=torch.long, device=self.device))
+        gene_symbols = []
+        if gene_targets:
+            inv = {v: k for k, v in self._gene_idx.items()}
+            gene_symbols = [inv[g] for g in gene_targets if g in inv]
+        neighbor_labels = [self.vocab[i] for i in neighbor_terms if i < len(self.vocab)]
+        return {
+            "map": pred.detach().cpu().numpy().ravel(),
+            "gene_mentions": gene_symbols,
+            "neighbor_terms": neighbor_labels,
+            "query_embedded": query_used_openai,
+        }
+
     @property
     def n_parcels(self) -> int:
         return int(self.config["n_parcels"])

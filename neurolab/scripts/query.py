@@ -203,6 +203,15 @@ def main():
         help="GNN blend weight when --kg-gnn is set (default: 0.3). 0=ignore, 1=GNN only.",
     )
     parser.add_argument(
+        "--kg-novel-term",
+        action="store_true",
+        help="Use open-vocabulary graph injection (predict_novel_term) instead of "
+             "nearest-neighbor lookup. Embeds the query via OpenAI, adds it as a fresh "
+             "Term node to the heterogeneous graph (borrowing the closest in-vocab "
+             "term's edges), propagates through the GNN, and reads out the new node's "
+             "prediction. Slightly slower but conditioned on the actual query semantics.",
+    )
+    parser.add_argument(
         "--guardrail",
         choices=["on", "off", "warn"],
         default="on",
@@ -379,6 +388,7 @@ def main():
     if args.kg_gnn and unified.kg_predictor is not None:
         enrich_kwargs["kg_query_text"] = args.term
         enrich_kwargs["kg_weight"] = float(args.kg_weight)
+        enrich_kwargs["kg_novel_term"] = bool(args.kg_novel_term)
     result = unified.enrich(parcellated, **enrich_kwargs)
 
     print("\n--- Summary ---")

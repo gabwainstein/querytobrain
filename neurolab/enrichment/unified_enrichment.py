@@ -80,6 +80,7 @@ class UnifiedEnrichment:
         biological_method: str = "pearson",
         kg_query_text: Optional[str] = None,
         kg_weight: float = 0.0,
+        kg_novel_term: bool = False,
     ) -> Dict:
         """
         Run cognitive decode and biological enrichment (receptor + optional neuromaps); build summary.
@@ -98,7 +99,13 @@ class UnifiedEnrichment:
             raise ValueError(f"Expected {self.n_parcels} parcels, got {activation.shape[0]}")
         if self.kg_predictor is not None and kg_query_text and kg_weight > 0.0:
             try:
-                kg_map = np.asarray(self.kg_predictor.predict_map(kg_query_text), dtype=np.float64).ravel()
+                if kg_novel_term and hasattr(self.kg_predictor, "predict_novel_term"):
+                    kg_out = self.kg_predictor.predict_novel_term(kg_query_text)
+                    kg_map_raw = kg_out["map"]
+                    result["kg_neighbor_terms"] = kg_out.get("neighbor_terms", [])
+                else:
+                    kg_map_raw = self.kg_predictor.predict_map(kg_query_text)
+                kg_map = np.asarray(kg_map_raw, dtype=np.float64).ravel()
                 if kg_map.shape[0] == self.n_parcels and np.isfinite(kg_map).all():
                     a_z = (activation - np.nanmean(activation)) / (np.nanstd(activation) + 1e-8)
                     k_z = (kg_map - np.mean(kg_map)) / (np.std(kg_map) + 1e-8)
