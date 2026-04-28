@@ -319,6 +319,65 @@ class KGToBrainPredictor:
         "USP", "NTS", "KEY", "TOP", "END", "MAP", "TAR", "CON",
     })
 
+    def _gene_targets_from_bridge(self, bridge_payload: dict) -> "list[int]":
+        """Extract gene-symbol targets from a QueryBridge.process() payload.
+
+        Walks `kb_enrichment.detected_compounds` and any `comparison_analysis`
+        / `stack_analysis` / `side_effect_analysis` shared_targets, mapping
+        symbol-like tokens to graph Gene rows.
+        """
+        if not isinstance(bridge_payload, dict):
+            return []
+        if not hasattr(self, "_gene_idx"):
+            return []
+        found: "list[int]" = []
+        seen: set = set()
+
+        def _add_symbol(s: str):
+            sym = str(s or "").strip()
+            if not sym:
+                return
+            # exact match
+            if sym in self._gene_idx and sym not in self._GENE_MENTION_STOPWORDS:
+                gid = self._gene_idx[sym]
+                if gid not in seen:
+                    found.append(gid)
+                    seen.add(gid)
+                return
+            # try uppercase first token
+            for tok in self._GENE_TOKEN_RE.findall(sym):
+                if tok in self._gene_idx and tok not in self._GENE_MENTION_STOPWORDS:
+                    gid = self._gene_idx[tok]
+                    if gid not in seen:
+                        found.append(gid)
+                        seen.add(gid)
+                    return
+
+        kb = bridge_payload.get("kb_enrichment") or {}
+        for comp in (kb.get("detected_compounds") or []):
+            if not isinstance(comp, dict):
+                continue
+            for k in ("primary_target", "primary_targets", "targets", "target_genes", "genes"):
+                vals = comp.get(k)
+                if isinstance(vals, str):
+                    _add_symbol(vals)
+                elif isinstance(vals, (list, tuple)):
+                    for v in vals:
+                        if isinstance(v, str):
+                            _add_symbol(v)
+                        elif isinstance(v, dict):
+                            _add_symbol(v.get("symbol") or v.get("gene") or v.get("target"))
+
+        for analysis_key in ("comparison_analysis", "stack_analysis", "side_effect_analysis"):
+            block = bridge_payload.get(analysis_key) or {}
+            for tgt in (block.get("shared_targets") or []):
+                if isinstance(tgt, str):
+                    _add_symbol(tgt)
+                elif isinstance(tgt, dict):
+                    _add_symbol(tgt.get("symbol") or tgt.get("gene") or tgt.get("name"))
+
+        return found
+
     def _detect_gene_mentions(self, text: str) -> "list[int]":
         """Return graph row indices for Gene nodes whose symbols appear in `text`."""
         node_index_path = self.graph_dir / "node_index.pkl"
@@ -336,6 +395,7 @@ class KGToBrainPredictor:
         infer_term_gene_edges: bool = True,
         borrow_neighbor_edges: bool = True,
         n_neighbors: int = 1,
+        bridge_payload: Optional[dict] = None,
     ) -> dict:
         """Inject `text` as a brand-new Term node, propagate through the GNN, and
         read out the prediction. Real graph-based open-vocabulary inference
@@ -394,19 +454,42 @@ class KGToBrainPredictor:
             aug[et].edge_index = ei
 
         if borrow_neighbor_edges:
-            # Find n_neighbors closest in-vocab Term rows in OpenAI embedding
-            # space (or fall back to encoded-Term-embedding space) and have the
-            # new node borrow each neighbor's outgoing/incoming edges.
-            if self.openai_term_embeddings is not None and query_used_openai:
-                sims = self.openai_term_embeddings @ feat
-            else:
-                # Fallback: use encoded term_embeddings.npy
-                te = self.term_embeddings
-                fn = feat / (np.linalg.norm(feat) + 1e-8)
-                te_n = te / (np.linalg.norm(te, axis=1, keepdims=True) + 1e-8)
-                sims = te_n @ fn[: te.shape[1]] if feat.shape[0] >= te.shape[1] else te_n @ np.pad(fn, (0, te.shape[1] - feat.shape[0]))
-            top_n = list(np.argsort(sims)[::-1][:max(1, int(n_neighbors))])
-            neighbor_terms = [int(i) for i in top_n]
+            # Multi-anchor neighbor selection.
+            # Priority: explicit bridge_payload retrieval list (uses
+            # QueryBridge's normalized + KB-enriched + ontology-expanded
+            # candidates with retrieval_similarity weights) -> falls back to
+            # plain cosine top-K in OpenAI / encoded-term space.
+            neighbor_terms = []
+            if bridge_payload is not None:
+                rows = bridge_payload.get("retrieval_top_terms") or []
+                for r in rows:
+                    if not isinstance(r, dict):
+                        continue
+                    label = str(r.get("term") or r.get("label") or "")
+                    if not label:
+                        continue
+                    if label in self._vocab_index:
+                        neighbor_terms.append(self._vocab_index[label])
+                    elif label.lower() in self._vocab_lower:
+                        neighbor_terms.append(self._vocab_lower[label.lower()])
+                # de-dupe preserving order; cap by n_neighbors
+                seen = set()
+                neighbor_terms = [
+                    i for i in neighbor_terms
+                    if not (i in seen or seen.add(i))
+                ][: max(1, int(n_neighbors)) if int(n_neighbors) > 1 else max(3, len(neighbor_terms))]
+
+            if not neighbor_terms:
+                # Fallback: cosine top-K in OpenAI / encoded-term space.
+                if self.openai_term_embeddings is not None and query_used_openai:
+                    sims = self.openai_term_embeddings @ feat
+                else:
+                    te = self.term_embeddings
+                    fn = feat / (np.linalg.norm(feat) + 1e-8)
+                    te_n = te / (np.linalg.norm(te, axis=1, keepdims=True) + 1e-8)
+                    sims = te_n @ fn[: te.shape[1]] if feat.shape[0] >= te.shape[1] else te_n @ np.pad(fn, (0, te.shape[1] - feat.shape[0]))
+                top_n = list(np.argsort(sims)[::-1][:max(1, int(n_neighbors))])
+                neighbor_terms = [int(i) for i in top_n]
             # Copy edges where Term appears as src or dst, mapping to the new
             # Term row index. Each (src_type, rel, dst_type) is handled.
             for et in self.data.edge_types:
@@ -443,6 +526,18 @@ class KGToBrainPredictor:
             rev_et = ("Gene", "rev_mentions", "Term")
             if mention_et in self.data.edge_types or rev_et in self.data.edge_types:
                 gene_targets = self._detect_gene_mentions(text)
+                # Also harvest gene targets from QueryBridge KB enrichment, if
+                # present: each detected compound exposes target genes via the
+                # KB relations (`primary_target`, `target_of_compound`, etc.).
+                if bridge_payload is not None:
+                    if not hasattr(self, "_gene_idx"):
+                        self._detect_gene_mentions("")  # populates self._gene_idx
+                    bridge_genes = self._gene_targets_from_bridge(bridge_payload)
+                    seen = set(gene_targets)
+                    for gid in bridge_genes:
+                        if gid not in seen:
+                            gene_targets.append(gid)
+                            seen.add(gid)
                 if gene_targets:
                     src = torch.tensor([new_term_idx] * len(gene_targets), dtype=torch.long, device=self.device)
                     dst = torch.tensor(gene_targets, dtype=torch.long, device=self.device)
@@ -466,6 +561,8 @@ class KGToBrainPredictor:
             "gene_mentions": gene_symbols,
             "neighbor_terms": neighbor_labels,
             "query_embedded": query_used_openai,
+            "n_anchor_terms": len(neighbor_terms),
+            "bridge_used": bridge_payload is not None,
         }
 
     @property
