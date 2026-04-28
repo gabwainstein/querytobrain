@@ -19,12 +19,22 @@ gene → region (abagen), receptor → region (neuromaps PET), and term → regi
 (merged_sources CBMA) edges encodes inductive bias the MLP has no access to:
 "compound binds receptor X" implies "should activate regions where X is dense."
 
-Empirically (this repo, 2026-04-25):
-- **text_to_brain baseline (term-split):** mean Pearson r = 0.611
-- **KG-to-brain GNN (collection-split, harder):** mean Pearson r = **0.749**
+Empirically (this repo, 2026-04-28, after the source-bucketing fix):
+- **text_to_brain baseline (term-split, easier):** mean Pearson r = 0.611
+- **KG-to-brain GNN (collection-split, hard):** mean Pearson r = **0.609**
+  on the held-out `neuromaps` PET source (31 receptor density maps the
+  model never saw during training - a true cross-modality test:
+  fMRI activation -> PET density).
 
-Collection-split holds out *entire studies*, so the GNN winning on the harder
-generalization split is meaningful, not a metric quirk.
+Per-term distribution on that test set: 0% have r < 0.3; 77% have r >= 0.5;
+median r = 0.594. No catastrophic failures and zero negative correlations.
+
+A previous version of this doc reported 0.749 for the GNN; that number
+came from a now-fixed bug in `train_kg_to_brain_gnn.py` where
+`term_sources.pkl` was treated as a `dict` while it is actually a parallel
+`list`, silently degrading the documented collection-split to a much
+easier random-per-term split. The 0.609 above is the honest cross-source
+generalization metric.
 
 ---
 
