@@ -364,6 +364,11 @@ def main():
                     help="Skip the Term->Gene mention edge extraction. Use to reproduce the "
                          "graph schema from before that edge type was introduced (e.g. to load "
                          "checkpoints trained on the older schema).")
+    ap.add_argument("--exclude-ontology", action="store_true",
+                    help="Exclude the OntologyConcept node type and its edges entirely. The "
+                         "current schema has no Term<->OntologyConcept edges, so these nodes "
+                         "contribute nothing to Term predictions while burning message-passing "
+                         "compute (~371k nodes, ~900k edges). Requires retraining.")
     args = ap.parse_args()
 
     torch, HeteroData = _try_import_pyg()
@@ -390,10 +395,14 @@ def main():
     print(f"[receptors] {len(receptors)}  (receptor-gene flag set: {len(receptor_genes_set)})")
 
     # 4. Optional ontology meta-graph
-    onto = _ontology_edges(Path(args.ontology_dir), terms)
     onto_concepts: list[str] = []
     onto_edges_src: list[int] = []
     onto_edges_dst: list[int] = []
+    if args.exclude_ontology:
+        print(f"[ontology] EXCLUDED (--exclude-ontology)")
+        onto = None
+    else:
+        onto = _ontology_edges(Path(args.ontology_dir), terms)
     if onto is not None:
         try:
             G = onto["graph"]
@@ -513,7 +522,8 @@ def main():
     data["Term"].x = torch.tensor(term_feats)
     data["Gene"].x = torch.tensor(gene_feats)
     data["Receptor"].x = torch.tensor(receptor_feats)
-    data["OntologyConcept"].x = torch.tensor(onto_feats)
+    if not args.exclude_ontology:
+        data["OntologyConcept"].x = torch.tensor(onto_feats)
     data["Region"].x = torch.tensor(region_feats)
 
     # Save the supervision target (continuous Term->Region maps) for the trainer.
@@ -543,7 +553,8 @@ def main():
     _add_edge("Receptor", "densityIn", "Region", rc2r_src, rc2r_dst)
     _add_edge("Gene", "encodes", "Receptor", g2rc_src, g2rc_dst)
     _add_edge("Term", "mentions", "Gene", t2g_src, t2g_dst)
-    _add_edge("OntologyConcept", "relatedTo", "OntologyConcept", onto_edges_src, onto_edges_dst)
+    if not args.exclude_ontology:
+        _add_edge("OntologyConcept", "relatedTo", "OntologyConcept", onto_edges_src, onto_edges_dst)
 
     # ---------- Save ----------
     pt_path = output_dir / "hetero_data.pt"
@@ -553,9 +564,10 @@ def main():
         "Term": term_idx,
         "Gene": gene_idx,
         "Receptor": receptor_idx,
-        "OntologyConcept": onto_idx,
         "Region": {f"parcel_{i}": i for i in range(n_parcels)},
     }
+    if not args.exclude_ontology:
+        node_index["OntologyConcept"] = onto_idx
     with open(output_dir / "node_index.pkl", "wb") as fh:
         pickle.dump(node_index, fh)
 
