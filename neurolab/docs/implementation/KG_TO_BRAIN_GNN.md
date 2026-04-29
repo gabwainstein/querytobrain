@@ -19,15 +19,26 @@ gene → region (abagen), receptor → region (neuromaps PET), and term → regi
 (merged_sources CBMA) edges encodes inductive bias the MLP has no access to:
 "compound binds receptor X" implies "should activate regions where X is dense."
 
-Empirically (this repo, 2026-04-28, after the source-bucketing fix):
+Empirically (this repo, 2026-04-29):
 - **text_to_brain baseline (term-split, easier):** mean Pearson r = 0.611
-- **KG-to-brain GNN (collection-split, hard):** mean Pearson r = **0.609**
+- **KG-to-brain GNN (collection-split, hard):** mean Pearson r = **0.664**
   on the held-out `neuromaps` PET source (31 receptor density maps the
   model never saw during training - a true cross-modality test:
   fMRI activation -> PET density).
 
-Per-term distribution on that test set: 0% have r < 0.3; 77% have r >= 0.5;
-median r = 0.594. No catastrophic failures and zero negative correlations.
+In-vocab probe quality (10 well-known terms, mean r between predicted and
+ground-truth maps): **0.930** (range 0.86-0.96). Anatomy verifies: reward
+top regions are 10/10 subcortical (NAcc/striatum), amygdala 6/10 sub,
+motor execution lateralized cortical, etc.
+
+Reaching 0.664 from an earlier 0.609 came from two changes that compound:
+1. **Pruning OntologyConcept** (`--exclude-ontology` in the build): the
+   schema had no Term <-> OntologyConcept edges, so the 371k ontology
+   nodes contributed nothing to Term predictions while burning ~30x of
+   per-epoch compute. Pruning gave 30x faster epochs (300s -> 6.5s).
+2. **Longer training** (30 -> 100 epochs): only viable because of (1).
+   The model wasn't converged at 30 epochs; loss kept dropping from
+   2.25 to 1.08.
 
 A previous version of this doc reported 0.749 for the GNN; that number
 came from a now-fixed bug in `train_kg_to_brain_gnn.py` where
