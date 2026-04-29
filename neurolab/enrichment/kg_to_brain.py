@@ -35,8 +35,8 @@ def _torch_modules():
 
 def _pyg_modules():
     from torch_geometric.data import HeteroData
-    from torch_geometric.nn import HeteroConv, SAGEConv
-    return HeteroData, HeteroConv, SAGEConv
+    from torch_geometric.nn import HeteroConv, GraphConv
+    return HeteroData, HeteroConv, GraphConv
 
 
 def build_model(
@@ -59,7 +59,7 @@ def build_model(
         dropout: dropout applied between layers.
     """
     torch, nn, F = _torch_modules()
-    _, HeteroConv, SAGEConv = _pyg_modules()
+    _, HeteroConv, GraphConv = _pyg_modules()
 
     node_types, edge_types = metadata
 
@@ -77,22 +77,25 @@ def build_model(
             for layer in range(num_layers):
                 in_d = hidden_dim
                 out_d = out_dim if layer == num_layers - 1 else hidden_dim
-                # One SAGEConv per edge type inside HeteroConv gives per-relation
-                # weights — PyG-canonical heterogeneous message passing.
-                # (-1, -1) lets SAGEConv lazily infer src/dst feature dims, so we
-                # don't need to track per-node-type sizes for bipartite edges.
+                # One GraphConv per edge type inside HeteroConv. GraphConv
+                # natively supports `edge_weight`, which lets us scale
+                # per-edge contributions at inference (e.g. retrieval
+                # similarity weights for multi-anchor query injection).
                 conv = HeteroConv(
-                    {et: SAGEConv((-1, -1), out_d) for et in edge_types},
+                    {et: GraphConv(hidden_dim, out_d, aggr="add") for et in edge_types},
                     aggr="sum",
                 )
                 self.convs.append(conv)
             self.dropout = nn.Dropout(dropout)
             self.norm = nn.LayerNorm(out_dim)
 
-        def encode(self, x_dict, edge_index_dict):
+        def encode(self, x_dict, edge_index_dict, edge_weight_dict=None):
             h = {nt: self.input_proj[nt](x_dict[nt]) for nt in x_dict}
             for i, conv in enumerate(self.convs):
-                h = conv(h, edge_index_dict)
+                if edge_weight_dict is not None:
+                    h = conv(h, edge_index_dict, edge_weight_dict=edge_weight_dict)
+                else:
+                    h = conv(h, edge_index_dict)
                 if i != len(self.convs) - 1:
                     h = {k: self.dropout(F.relu(v)) for k, v in h.items()}
             h = {k: self.norm(v) for k, v in h.items()}
@@ -103,14 +106,17 @@ def build_model(
             region_h = self.region_embedding.weight  # (n_parcels, out_dim)
             return query_emb @ region_h.T
 
-        def forward(self, data, term_indices=None):
+        def forward(self, data, term_indices=None, edge_weight_dict=None):
             """If term_indices is given, returns predicted maps for those Term rows.
 
             Args:
                 data: HeteroData with x_dict and edge_index_dict.
                 term_indices: LongTensor of Term row indices to read out for.
+                edge_weight_dict: optional {edge_type: 1-D tensor of weights}
+                    aligned with edge_index_dict[edge_type]. Used to scale
+                    per-edge messages (only for GraphConv layers).
             """
-            h = self.encode(data.x_dict, data.edge_index_dict)
+            h = self.encode(data.x_dict, data.edge_index_dict, edge_weight_dict=edge_weight_dict)
             term_h = h["Term"]
             if term_indices is None:
                 return self.predict_map_from_embedding(term_h)
@@ -453,13 +459,19 @@ class KGToBrainPredictor:
             ei = self.data[et].edge_index
             aug[et].edge_index = ei
 
+        # Track per-edge-type weights for newly-added edges. Originals stay 1.0;
+        # borrowed/added edges carry the neighbor-weight that produced them.
+        # Only used if the model supports edge_weight (GraphConv).
+        added_edges_per_et: "dict[tuple, list[float]]" = {}
+
         if borrow_neighbor_edges:
-            # Multi-anchor neighbor selection.
-            # Priority: explicit bridge_payload retrieval list (uses
-            # QueryBridge's normalized + KB-enriched + ontology-expanded
-            # candidates with retrieval_similarity weights) -> falls back to
-            # plain cosine top-K in OpenAI / encoded-term space.
+            # Multi-anchor neighbor selection. Each neighbor carries a weight
+            # in [0, 1] (retrieval_similarity from QueryBridge or fallback
+            # cosine sim) used to scale the borrowed-edge contributions
+            # during message passing (only effective if the model uses
+            # GraphConv with edge_weight support).
             neighbor_terms = []
+            neighbor_weights: "list[float]" = []
             if bridge_payload is not None:
                 rows = bridge_payload.get("retrieval_top_terms") or []
                 for r in rows:
@@ -468,16 +480,23 @@ class KGToBrainPredictor:
                     label = str(r.get("term") or r.get("label") or "")
                     if not label:
                         continue
+                    sim = float(r.get("similarity") or r.get("score") or r.get("retrieval_similarity") or 0.0)
+                    sim = max(0.0, min(1.0, sim))
+                    idx = None
                     if label in self._vocab_index:
-                        neighbor_terms.append(self._vocab_index[label])
+                        idx = self._vocab_index[label]
                     elif label.lower() in self._vocab_lower:
-                        neighbor_terms.append(self._vocab_lower[label.lower()])
+                        idx = self._vocab_lower[label.lower()]
+                    if idx is not None:
+                        neighbor_terms.append(idx)
+                        neighbor_weights.append(sim or 1.0)
                 # de-dupe preserving order; cap by n_neighbors
                 seen = set()
-                neighbor_terms = [
-                    i for i in neighbor_terms
-                    if not (i in seen or seen.add(i))
-                ][: max(1, int(n_neighbors)) if int(n_neighbors) > 1 else max(3, len(neighbor_terms))]
+                paired = [(t, w) for t, w in zip(neighbor_terms, neighbor_weights) if not (t in seen or seen.add(t))]
+                cap = max(1, int(n_neighbors)) if int(n_neighbors) > 1 else max(3, len(paired))
+                paired = paired[:cap]
+                neighbor_terms = [t for t, _ in paired]
+                neighbor_weights = [w for _, w in paired]
 
             if not neighbor_terms:
                 # Fallback: cosine top-K in OpenAI / encoded-term space.
@@ -490,36 +509,47 @@ class KGToBrainPredictor:
                     sims = te_n @ fn[: te.shape[1]] if feat.shape[0] >= te.shape[1] else te_n @ np.pad(fn, (0, te.shape[1] - feat.shape[0]))
                 top_n = list(np.argsort(sims)[::-1][:max(1, int(n_neighbors))])
                 neighbor_terms = [int(i) for i in top_n]
+                neighbor_weights = [float(sims[i]) for i in top_n]
             # Copy edges where Term appears as src or dst, mapping to the new
             # Term row index. Each (src_type, rel, dst_type) is handled.
+            # Track which weight to apply per added edge (using the
+            # corresponding neighbor's weight).
             for et in self.data.edge_types:
                 src_t, rel, dst_t = et
                 if src_t == "Term":
                     ei = self.data[et].edge_index
                     new_src_list = []
                     new_dst_list = []
-                    for nb in neighbor_terms:
+                    new_weight_list: "list[float]" = []
+                    for nb, w in zip(neighbor_terms, neighbor_weights):
                         mask = ei[0] == nb
-                        if int(mask.sum()) == 0:
+                        n_e = int(mask.sum())
+                        if n_e == 0:
                             continue
-                        new_src_list.append(torch.full((int(mask.sum()),), new_term_idx, dtype=torch.long, device=self.device))
+                        new_src_list.append(torch.full((n_e,), new_term_idx, dtype=torch.long, device=self.device))
                         new_dst_list.append(ei[1, mask].to(self.device))
+                        new_weight_list.extend([float(w)] * n_e)
                     if new_src_list:
                         added = torch.stack([torch.cat(new_src_list), torch.cat(new_dst_list)])
                         aug[et].edge_index = torch.cat([aug[et].edge_index, added], dim=1)
+                        added_edges_per_et.setdefault(et, []).extend(new_weight_list)
                 if dst_t == "Term":
                     ei = self.data[et].edge_index
                     new_src_list = []
                     new_dst_list = []
-                    for nb in neighbor_terms:
+                    new_weight_list = []
+                    for nb, w in zip(neighbor_terms, neighbor_weights):
                         mask = ei[1] == nb
-                        if int(mask.sum()) == 0:
+                        n_e = int(mask.sum())
+                        if n_e == 0:
                             continue
                         new_src_list.append(ei[0, mask].to(self.device))
-                        new_dst_list.append(torch.full((int(mask.sum()),), new_term_idx, dtype=torch.long, device=self.device))
+                        new_dst_list.append(torch.full((n_e,), new_term_idx, dtype=torch.long, device=self.device))
+                        new_weight_list.extend([float(w)] * n_e)
                     if new_src_list:
                         added = torch.stack([torch.cat(new_src_list), torch.cat(new_dst_list)])
                         aug[et].edge_index = torch.cat([aug[et].edge_index, added], dim=1)
+                        added_edges_per_et.setdefault(et, []).extend(new_weight_list)
 
         if infer_term_gene_edges:
             mention_et = ("Term", "mentions", "Gene")
@@ -542,15 +572,45 @@ class KGToBrainPredictor:
                     src = torch.tensor([new_term_idx] * len(gene_targets), dtype=torch.long, device=self.device)
                     dst = torch.tensor(gene_targets, dtype=torch.long, device=self.device)
                     new_edges = torch.stack([src, dst])
+                    gene_w = [1.0] * len(gene_targets)  # KB targets are exact, weight 1
                     if mention_et in self.data.edge_types:
                         aug[mention_et].edge_index = torch.cat([self.data[mention_et].edge_index, new_edges], dim=1)
+                        added_edges_per_et.setdefault(mention_et, []).extend(gene_w)
                     if rev_et in self.data.edge_types:
                         rev_new = torch.stack([dst, src])
                         aug[rev_et].edge_index = torch.cat([self.data[rev_et].edge_index, rev_new], dim=1)
+                        added_edges_per_et.setdefault(rev_et, []).extend(gene_w)
 
-        # 4. Forward, read out the new term row.
+        # 4. Build edge_weight_dict (originals = 1.0; added edges carry
+        #    neighbor/compound weights). Only used by GraphConv-trained
+        #    models; SAGEConv models silently ignore.
+        edge_weight_dict = None
+        if added_edges_per_et:
+            edge_weight_dict = {}
+            for et in aug.edge_types:
+                n_total = aug[et].edge_index.size(1)
+                if et in added_edges_per_et:
+                    n_added = len(added_edges_per_et[et])
+                    n_orig = n_total - n_added
+                    weights = torch.cat([
+                        torch.ones(max(n_orig, 0), dtype=torch.float32, device=self.device),
+                        torch.tensor(added_edges_per_et[et], dtype=torch.float32, device=self.device),
+                    ])
+                else:
+                    weights = torch.ones(n_total, dtype=torch.float32, device=self.device)
+                edge_weight_dict[et] = weights
+
+        # 5. Forward, read out the new term row.
         with torch.no_grad():
-            pred = self.model(aug, term_indices=torch.tensor([new_term_idx], dtype=torch.long, device=self.device))
+            try:
+                pred = self.model(
+                    aug,
+                    term_indices=torch.tensor([new_term_idx], dtype=torch.long, device=self.device),
+                    edge_weight_dict=edge_weight_dict,
+                )
+            except TypeError:
+                # Older model without edge_weight_dict support — fall back.
+                pred = self.model(aug, term_indices=torch.tensor([new_term_idx], dtype=torch.long, device=self.device))
         gene_symbols = []
         if gene_targets:
             inv = {v: k for k, v in self._gene_idx.items()}
